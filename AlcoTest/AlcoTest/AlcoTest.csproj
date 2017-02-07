@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControllerAlcoTest.cs" />
     <Compile Include="VueAcloTest.cs">
       <SubType>Form</SubType>
     </Compile>
