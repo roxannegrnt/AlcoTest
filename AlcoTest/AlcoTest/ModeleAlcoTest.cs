@@ -59,13 +59,19 @@ namespace AlcoTest
         {
             this.TauxAlc = 0;
         }
-        public double Boire()
+        public double CalculerGrammeAlc(int pourcentage)
+        {
+            // grams of alcool for 1L.
+            return (pourcentage * 800) / 100;
+        }
+        public double Boire(int pourcentage)
         {
             //TauxGenre takes 0.6 if gender is Female and 0.7 if gender is Male.
-            double Tauxgenre= ((this.Sexe==0) ? 0.6 : 0.7);
-            double gramme= this.Litre;
-           this.TauxAlc += gramme / (this.Masse * Tauxgenre);
-           return this.TauxAlc;
+            double Tauxgenre = ((this.Sexe == 0) ? 0.6 : 0.7);
+            //Quantity drank in cl * quantity of alcool for 1l gives grams for quantity drank.
+            double gramme = (this.Litre*CalculerGrammeAlc(pourcentage))/100;
+            this.TauxAlc += gramme / (this.Masse * Tauxgenre);
+            return this.TauxAlc;
         }
         public void Rafraichir()
         {
