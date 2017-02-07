@@ -44,12 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="ControllerAlcoTest.cs" />
     <Compile Include="frmEditer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEditer.Designer.cs">
       <DependentUpon>frmEditer.cs</DependentUpon>
     </Compile>
+>>>>>>> frmEditer+frnMain
     <Compile Include="VueAcloTest.cs">
       <SubType>Form</SubType>
     </Compile>
