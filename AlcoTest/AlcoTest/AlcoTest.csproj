@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APropos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APropos.Designer.cs">
+      <DependentUpon>APropos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="ModeleAlcoTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="APropos.resx">
+      <DependentUpon>APropos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditer.resx">
       <DependentUpon>frmEditer.cs</DependentUpon>
     </EmbeddedResource>

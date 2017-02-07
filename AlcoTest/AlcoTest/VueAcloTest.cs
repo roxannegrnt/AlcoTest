@@ -21,5 +21,22 @@ namespace AlcoTest
         {
             lblProch.Text = tbrGramme.Value.ToString()+"%";
         }
+
+        private void editerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEditer editer = new frmEditer();
+            editer.ShowDialog();
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            APropos propos = new APropos();
+            propos.ShowDialog();
+        }
     }
 }

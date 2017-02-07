@@ -36,12 +36,13 @@
             this.cbxSexe = new System.Windows.Forms.ComboBox();
             this.lsbEditer = new System.Windows.Forms.ListBox();
             this.btnValider = new System.Windows.Forms.Button();
+            this.btnAddList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(131, 48);
+            this.label1.Location = new System.Drawing.Point(70, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(138, 72);
+            this.label2.Location = new System.Drawing.Point(77, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 1;
@@ -59,7 +60,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(104, 97);
+            this.label3.Location = new System.Drawing.Point(43, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 2;
@@ -67,16 +68,16 @@
             // 
             // tbxMasse
             // 
-            this.tbxMasse.Location = new System.Drawing.Point(191, 45);
+            this.tbxMasse.Location = new System.Drawing.Point(127, 45);
             this.tbxMasse.Name = "tbxMasse";
-            this.tbxMasse.Size = new System.Drawing.Size(121, 20);
+            this.tbxMasse.Size = new System.Drawing.Size(124, 20);
             this.tbxMasse.TabIndex = 3;
             // 
             // tbxFavori
             // 
-            this.tbxFavori.Location = new System.Drawing.Point(191, 94);
+            this.tbxFavori.Location = new System.Drawing.Point(127, 94);
             this.tbxFavori.Name = "tbxFavori";
-            this.tbxFavori.Size = new System.Drawing.Size(121, 20);
+            this.tbxFavori.Size = new System.Drawing.Size(124, 20);
             this.tbxFavori.TabIndex = 5;
             // 
             // cbxSexe
@@ -85,9 +86,9 @@
             this.cbxSexe.Items.AddRange(new object[] {
             "Femme",
             "Homme"});
-            this.cbxSexe.Location = new System.Drawing.Point(191, 69);
+            this.cbxSexe.Location = new System.Drawing.Point(127, 69);
             this.cbxSexe.Name = "cbxSexe";
-            this.cbxSexe.Size = new System.Drawing.Size(121, 21);
+            this.cbxSexe.Size = new System.Drawing.Size(124, 21);
             this.cbxSexe.TabIndex = 6;
             // 
             // lsbEditer
@@ -108,11 +109,21 @@
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = true;
             // 
+            // btnAddList
+            // 
+            this.btnAddList.Location = new System.Drawing.Point(282, 91);
+            this.btnAddList.Name = "btnAddList";
+            this.btnAddList.Size = new System.Drawing.Size(109, 23);
+            this.btnAddList.TabIndex = 9;
+            this.btnAddList.Text = "Ajouter à la liste";
+            this.btnAddList.UseVisualStyleBackColor = true;
+            // 
             // frmEditer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 444);
+            this.Controls.Add(this.btnAddList);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.lsbEditer);
             this.Controls.Add(this.cbxSexe);
@@ -138,5 +149,6 @@
         private System.Windows.Forms.ComboBox cbxSexe;
         private System.Windows.Forms.ListBox lsbEditer;
         private System.Windows.Forms.Button btnValider;
+        private System.Windows.Forms.Button btnAddList;
     }
 }

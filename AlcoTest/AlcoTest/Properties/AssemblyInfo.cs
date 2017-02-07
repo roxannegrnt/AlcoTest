@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("AlcoTest")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Application qui permet de voir son taux d'alcoolémie")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Grant et Ramushi")]
 [assembly: AssemblyProduct("AlcoTest")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]

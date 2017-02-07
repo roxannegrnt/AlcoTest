@@ -72,12 +72,14 @@
             this.editerToolStripMenuItem.Name = "editerToolStripMenuItem";
             this.editerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editerToolStripMenuItem.Text = "&Editer";
+            this.editerToolStripMenuItem.Click += new System.EventHandler(this.editerToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -90,8 +92,9 @@
             // aProposToolStripMenuItem
             // 
             this.aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
-            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aProposToolStripMenuItem.Text = "&A propos";
+            this.aProposToolStripMenuItem.Click += new System.EventHandler(this.aProposToolStripMenuItem_Click);
             // 
             // lblTaux
             // 
