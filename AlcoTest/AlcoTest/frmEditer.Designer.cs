@@ -32,11 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxMasse = new System.Windows.Forms.TextBox();
-            this.tbxFavori = new System.Windows.Forms.TextBox();
             this.cbxSexe = new System.Windows.Forms.ComboBox();
             this.lsbEditer = new System.Windows.Forms.ListBox();
             this.btnValider = new System.Windows.Forms.Button();
             this.btnAddList = new System.Windows.Forms.Button();
+            this.cbxFav = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -73,19 +73,12 @@
             this.tbxMasse.Size = new System.Drawing.Size(124, 20);
             this.tbxMasse.TabIndex = 3;
             // 
-            // tbxFavori
-            // 
-            this.tbxFavori.Location = new System.Drawing.Point(127, 94);
-            this.tbxFavori.Name = "tbxFavori";
-            this.tbxFavori.Size = new System.Drawing.Size(124, 20);
-            this.tbxFavori.TabIndex = 5;
-            // 
             // cbxSexe
             // 
             this.cbxSexe.FormattingEnabled = true;
             this.cbxSexe.Items.AddRange(new object[] {
-            "Femme",
-            "Homme"});
+            "F",
+            "H"});
             this.cbxSexe.Location = new System.Drawing.Point(127, 69);
             this.cbxSexe.Name = "cbxSexe";
             this.cbxSexe.Size = new System.Drawing.Size(124, 21);
@@ -108,6 +101,7 @@
             this.btnValider.TabIndex = 8;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
             // 
             // btnAddList
             // 
@@ -117,23 +111,33 @@
             this.btnAddList.TabIndex = 9;
             this.btnAddList.Text = "Ajouter à la liste";
             this.btnAddList.UseVisualStyleBackColor = true;
+            this.btnAddList.Click += new System.EventHandler(this.btnAddList_Click);
+            // 
+            // cbxFav
+            // 
+            this.cbxFav.FormattingEnabled = true;
+            this.cbxFav.Location = new System.Drawing.Point(127, 96);
+            this.cbxFav.Name = "cbxFav";
+            this.cbxFav.Size = new System.Drawing.Size(124, 21);
+            this.cbxFav.TabIndex = 10;
             // 
             // frmEditer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 444);
+            this.Controls.Add(this.cbxFav);
             this.Controls.Add(this.btnAddList);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.lsbEditer);
             this.Controls.Add(this.cbxSexe);
-            this.Controls.Add(this.tbxFavori);
             this.Controls.Add(this.tbxMasse);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmEditer";
             this.Text = "frmEditer";
+            this.Load += new System.EventHandler(this.frmEditer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,10 +149,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxMasse;
-        private System.Windows.Forms.TextBox tbxFavori;
         private System.Windows.Forms.ComboBox cbxSexe;
         private System.Windows.Forms.ListBox lsbEditer;
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Button btnAddList;
+        private System.Windows.Forms.ComboBox cbxFav;
     }
 }

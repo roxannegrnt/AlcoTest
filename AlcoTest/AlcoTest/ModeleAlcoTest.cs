@@ -58,6 +58,8 @@ namespace AlcoTest
         }
         public ModeleAlcoTest()
         {
+            AlcFav = new Dictionary<string,int>();
+            ToutAlc = new Dictionary<string,int>();
             this.TauxAlc = 0;
         }
         public double CalculerGrammeAlc(int pourcentage)
