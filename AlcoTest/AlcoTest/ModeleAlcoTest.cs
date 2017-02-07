@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace AlcoTest
@@ -11,8 +12,8 @@ namespace AlcoTest
         private int _masse;
         private int _sexe;
         private int _clitre;
-        private List<string> _alcFav;
-        private List<string> _toutAlc;
+        private Dictionary<string, int> _alcFav;
+        private Dictionary<string, int> _toutAlc;
         private double _TauxAlc;
         private int _timer;
 
@@ -32,13 +33,13 @@ namespace AlcoTest
             get { return _clitre; }
             set { _clitre = value; }
         }
-        public List<string> AlcFav
+        public Dictionary<string, int> AlcFav
         {
             get { return _alcFav; }
             set { _alcFav = value; }
         }
 
-        public List<string> ToutAlc
+        public Dictionary<string, int> ToutAlc
         {
             get { return _toutAlc; }
             set { _toutAlc = value; }
@@ -69,7 +70,7 @@ namespace AlcoTest
             //TauxGenre takes 0.6 if gender is Female and 0.7 if gender is Male.
             double Tauxgenre = ((this.Sexe == 0) ? 0.6 : 0.7);
             //Quantity drank in cl * quantity of alcool for 1l gives grams for quantity drank.
-            double gramme = (this.Litre*CalculerGrammeAlc(pourcentage))/100;
+            double gramme = (this.Litre * CalculerGrammeAlc(pourcentage)) / 100;
             this.TauxAlc += gramme / (this.Masse * Tauxgenre);
             return this.TauxAlc;
         }
@@ -81,13 +82,30 @@ namespace AlcoTest
         {
 
         }
-        public void SauverData()
+        public void SauverData(int paramMasse, char paramSexe)
         {
-
+            this.Masse = paramMasse;
+            this.Sexe = ((paramSexe == 'F') ? 0 : 1);
         }
-        public void AfficherAlcool()
+        public void SauverAlcfav(Dictionary<string, int> paramListAlc, string filename)
         {
-
+            StreamWriter swAlc = new StreamWriter(filename);
+            foreach (var item in paramListAlc)
+            {
+                swAlc.WriteLine(item.Key + "," + item.Value);
+            }
+            this.AlcFav = paramListAlc;
+        }
+        public void AfficherAlcool(string filename)
+        {
+            string ligne = "";
+            StreamReader srAlc = new StreamReader(filename, Encoding.UTF8);
+            while (srAlc.EndOfStream == false)
+            {
+                ligne = srAlc.ReadLine();
+                this.ToutAlc.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
+            }
+            srAlc.Close();
         }
     }
 }

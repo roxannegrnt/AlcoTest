@@ -61,6 +61,15 @@ namespace AlcoTest.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à .
+        /// </summary>
+        internal static string AlcoolFav {
+            get {
+                return ResourceManager.GetString("AlcoolFav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Vodka,40%
         ///bière,5%
         ///vin,12%
