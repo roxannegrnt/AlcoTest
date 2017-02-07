@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace AlcoTest
 {
-    public partial class VueAcloTest : Form
+    public partial class frmEditer : Form
     {
-        public VueAcloTest()
+        public frmEditer()
         {
             InitializeComponent();
-        }
-
-        private void tbrGramme_ValueChanged(object sender, EventArgs e)
-        {
-            lblProch.Text = tbrGramme.Value.ToString()+"%";
         }
     }
 }
