@@ -50,6 +50,7 @@
     <Compile Include="APropos.Designer.cs">
       <DependentUpon>APropos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControleurAlcoTest.cs" />
     <Compile Include="frmEditer.cs">
       <SubType>Form</SubType>
     </Compile>

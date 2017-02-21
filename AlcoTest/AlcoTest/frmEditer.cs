@@ -12,6 +12,7 @@ namespace AlcoTest
 {
     public partial class frmEditer : Form
     {
+        
         ModeleAlcoTest model;
         public frmEditer()
         {
@@ -20,6 +21,7 @@ namespace AlcoTest
 
         private void btnValider_Click(object sender, EventArgs e)
         {
+            
             Dictionary<string, int> dic = new Dictionary<string, int>();
             model.SauverData(Convert.ToInt32(tbxMasse.Text), Convert.ToChar(cbxSexe.Text));
             foreach (var items in lsbEditer.Items)
