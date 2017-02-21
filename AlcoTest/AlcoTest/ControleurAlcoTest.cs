@@ -32,9 +32,9 @@ namespace AlcoTest
         {
             modele.SauverAlcfav(paramListAlc, filename);
         }
-        public void AfficherAlcool(string filename)
+        public void AfficherToutAlcool(string filename)
         {
-            modele.AfficherAlcool(filename);
+            modele.AfficherToutAlcool(filename);
         }
 
 

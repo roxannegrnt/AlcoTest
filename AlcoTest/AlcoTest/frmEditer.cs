@@ -26,13 +26,12 @@ namespace AlcoTest
             model.SauverData(Convert.ToInt32(tbxMasse.Text), Convert.ToChar(cbxSexe.Text));
             foreach (var items in lsbEditer.Items)
             {
-                //todo
-                /*
-                dic.Keys = items.Split(",")[0];
-                dic.Values = items.Split(",")[1];
-              * */
+                string alc = items.ToString().Substring(0, items.ToString().IndexOf(","));
+                string pourcent = items.ToString().Substring(items.ToString().IndexOf(",")+1);
+                int pour = Convert.ToInt32(pourcent.Replace("%",""));
+                dic.Add(alc, pour);
             }
-            model.SauverAlcfav(dic, Properties.Resources.AlcoolFav);
+            model.SauverAlcfav(dic, "..\\..\\Resources\\AlcoolFav.txt");
             this.Close();
         }
 
@@ -46,7 +45,7 @@ namespace AlcoTest
         private void frmEditer_Load(object sender, EventArgs e)
         {
             model = new ModeleAlcoTest();
-            model.AfficherAlcool("..\\..\\Resources\\Alcoool.txt");
+            model.AfficherToutAlcool("..\\..\\Resources\\Alcoool.txt");
             foreach (var item in model.ToutAlc)
             {
                 cbxFav.Items.Add(item.Key + "," + item.Value+"%");
