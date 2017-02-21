@@ -70,14 +70,14 @@
             // editerToolStripMenuItem
             // 
             this.editerToolStripMenuItem.Name = "editerToolStripMenuItem";
-            this.editerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editerToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.editerToolStripMenuItem.Text = "&Editer";
             this.editerToolStripMenuItem.Click += new System.EventHandler(this.editerToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -92,7 +92,7 @@
             // aProposToolStripMenuItem
             // 
             this.aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
-            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.aProposToolStripMenuItem.Text = "&A propos";
             this.aProposToolStripMenuItem.Click += new System.EventHandler(this.aProposToolStripMenuItem_Click);
             // 
@@ -151,6 +151,7 @@
             this.btnBoir.TabIndex = 6;
             this.btnBoir.Text = "Boir !!";
             this.btnBoir.UseVisualStyleBackColor = true;
+            this.btnBoir.Click += new System.EventHandler(this.btnBoir_Click);
             // 
             // label3
             // 
@@ -198,6 +199,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VueAcloTest";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.VueAcloTest_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbrGramme)).EndInit();

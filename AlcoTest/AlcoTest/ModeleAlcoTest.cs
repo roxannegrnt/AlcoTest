@@ -97,8 +97,9 @@ namespace AlcoTest
                 swAlc.WriteLine(item.Key + "," + item.Value);
             }
             this.AlcFav = paramListAlc;
+            swAlc.Close();
         }
-        public void AfficherAlcool(string filename)
+        public void AfficherToutAlcool(string filename)
         {
             string ligne = "";
             StreamReader srAlc = new StreamReader(filename, Encoding.UTF8);
@@ -106,6 +107,20 @@ namespace AlcoTest
             {
                 ligne = srAlc.ReadLine();
                 this.ToutAlc.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
+            }
+            srAlc.Close();
+        }
+        public void AfficherAlcoolFav(string filename)
+        {
+            string ligne = "";
+            StreamReader srAlc = new StreamReader(filename, Encoding.UTF8);
+            while (srAlc.EndOfStream == false)
+            {
+                ligne = srAlc.ReadLine();
+                if (ligne!="")
+                {
+                    this.AlcFav.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
+                }
             }
             srAlc.Close();
         }

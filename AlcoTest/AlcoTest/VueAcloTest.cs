@@ -16,7 +16,10 @@ namespace AlcoTest
         {
             InitializeComponent();
         }
-
+        private void VueAcloTest_Load(object sender, EventArgs e)
+        {
+            
+        }
         private void tbrGramme_ValueChanged(object sender, EventArgs e)
         {
             lblProch.Text = tbrGramme.Value.ToString()+"%";
@@ -38,5 +41,12 @@ namespace AlcoTest
             APropos propos = new APropos();
             propos.ShowDialog();
         }
+
+        private void btnBoir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
