@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlcoTest
 {
-    class ControleurAlcoTest
+    public class ControleurAlcoTest
     {
         private ModeleAlcoTest modele;
         private VueAcloTest vueAlc;
@@ -28,13 +28,31 @@ namespace AlcoTest
         {
             modele.SauverData(paramMasse,paramSexe);
         }
-        public void sauverAlcFav(Dictionary<string, int> paramListAlc, string filename)
+        public void SauverAlcfav(Dictionary<string, int> paramListAlc, string filename)
         {
             modele.SauverAlcfav(paramListAlc, filename);
         }
-        public void AfficherToutAlcool(string filename)
+        public void SetLitre(int litres)
+        {
+             modele.Litre=litres;
+        }
+        public Dictionary<string, int> AfficherToutAlcool(string filename)
         {
             modele.AfficherToutAlcool(filename);
+            return modele.ToutAlc;
+        }
+        public Dictionary<string,int> AfficherAlcDemande(string filenameAlcFav, string filenameAlc)
+        {
+            modele.AfficherAlcoolFav(filenameAlcFav);
+            if (modele.AlcFav.Count>0)
+            {
+                return modele.AlcFav;
+            }
+            else
+            {
+                AfficherToutAlcool(filenameAlc);
+                return modele.ToutAlc;
+            }
         }
 
 

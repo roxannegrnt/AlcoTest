@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlcoTest
 {
-    class ModeleAlcoTest
+    public class ModeleAlcoTest
     {
         private int _masse;
         private int _sexe;
@@ -58,8 +58,8 @@ namespace AlcoTest
         }
         public ModeleAlcoTest()
         {
-            AlcFav = new Dictionary<string,int>();
-            ToutAlc = new Dictionary<string,int>();
+            AlcFav = new Dictionary<string, int>();
+            ToutAlc = new Dictionary<string, int>();
             this.TauxAlc = 0;
         }
         public double CalculerGrammeAlc(int pourcentage)
@@ -117,10 +117,9 @@ namespace AlcoTest
             while (srAlc.EndOfStream == false)
             {
                 ligne = srAlc.ReadLine();
-                if (ligne!="")
-                {
-                    this.AlcFav.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
-                }
+
+                this.AlcFav.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
+
             }
             srAlc.Close();
         }

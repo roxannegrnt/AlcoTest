@@ -16,18 +16,24 @@ namespace AlcoTest
         {
             InitializeComponent();
         }
+        private ControleurAlcoTest Ctrl;
         private void VueAcloTest_Load(object sender, EventArgs e)
         {
-            
+            this.Ctrl = new ControleurAlcoTest(this);
+            Dictionary<string, int> Alc = this.Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
+            foreach (var item in Alc)
+            {
+                cbxAlcool.Items.Add(item.Key + " , " + item.Value + "%");
+            }
         }
         private void tbrGramme_ValueChanged(object sender, EventArgs e)
         {
-            lblProch.Text = tbrGramme.Value.ToString()+"%";
+            lblProch.Text = tbrGramme.Value.ToString() + "%";
         }
 
         private void editerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmEditer editer = new frmEditer();
+            frmEditer editer = new frmEditer(this.Ctrl);
             editer.ShowDialog();
         }
 
@@ -44,9 +50,12 @@ namespace AlcoTest
 
         private void btnBoir_Click(object sender, EventArgs e)
         {
-
+            string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
+            int pour = Convert.ToInt32(pourcent.Replace("%", ""));
+            this.Ctrl.SetLitre(tbrGramme.Value);
+            this.Ctrl.boire(pour);
         }
 
-        
+
     }
 }
