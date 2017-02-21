@@ -75,6 +75,7 @@
             // 
             // cbxSexe
             // 
+            this.cbxSexe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbxSexe.FormattingEnabled = true;
             this.cbxSexe.Items.AddRange(new object[] {
             "F",
@@ -115,6 +116,7 @@
             // 
             // cbxFav
             // 
+            this.cbxFav.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbxFav.FormattingEnabled = true;
             this.cbxFav.Location = new System.Drawing.Point(127, 96);
             this.cbxFav.Name = "cbxFav";

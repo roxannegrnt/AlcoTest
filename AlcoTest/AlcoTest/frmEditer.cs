@@ -49,6 +49,8 @@ namespace AlcoTest
             {
                 cbxFav.Items.Add(item.Key + "," + item.Value+"%");
             }
+            cbxFav.SelectedIndex = 0;
+            cbxSexe.SelectedIndex = 0;
         }
     }
 }
