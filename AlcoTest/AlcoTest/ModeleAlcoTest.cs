@@ -9,7 +9,7 @@ namespace AlcoTest
 {
     public class ModeleAlcoTest
     {
-        private int _masse;
+        private double _masse;
         private int _sexe;
         private int _clitre;
         private Dictionary<string, int> _alcFav;
@@ -17,7 +17,7 @@ namespace AlcoTest
         private double _TauxAlc;
         private int _timer;
 
-        public int Masse
+        public double Masse
         {
             get { return _masse; }
             set { _masse = value; }
@@ -61,12 +61,13 @@ namespace AlcoTest
             AlcFav = new Dictionary<string, int>();
             ToutAlc = new Dictionary<string, int>();
             this.TauxAlc = 0;
-            this.Masse = 60;
+            this.Masse = 0.06;
             this.Sexe = 0;
         }
         public double CalculerGrammeAlc(int pourcentage)
         {
             // grams of alcool for 1L.
+            double gramsL = (pourcentage * 800) / 100;
             return (pourcentage * 800) / 100;
         }
         public double Boire(int pourcentage)
@@ -75,7 +76,8 @@ namespace AlcoTest
             double Tauxgenre = ((this.Sexe == 0) ? 0.6 : 0.7);
             //Quantity drank in cl * quantity of alcool for 1l gives grams for quantity drank.
             double gramme = (this.Litre * CalculerGrammeAlc(pourcentage)) / 100;
-            this.TauxAlc += gramme / (this.Masse * Tauxgenre);
+            this.TauxAlc += (gramme / (this.Masse * Tauxgenre))/100;
+            this.TauxAlc = Math.Round(this.TauxAlc,2);
             return this.TauxAlc;
         }
         public double Rafraichir()
@@ -90,7 +92,7 @@ namespace AlcoTest
         }
         public void SauverData(int paramMasse, char paramSexe)
         {
-            this.Masse = paramMasse;
+            this.Masse = paramMasse/1000;
             this.Sexe = ((paramSexe == 'F') ? 0 : 1);
         }
         public void SauverAlcfav(Dictionary<string, int> paramListAlc, string filename)
