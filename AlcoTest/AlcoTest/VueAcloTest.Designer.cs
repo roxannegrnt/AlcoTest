@@ -44,7 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnBoir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lblProch = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
@@ -115,11 +114,11 @@
             // 
             this.tbrGramme.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.tbrGramme.Location = new System.Drawing.Point(264, 331);
-            this.tbrGramme.Maximum = 2000;
+            this.tbrGramme.Maximum = 200;
             this.tbrGramme.Name = "tbrGramme";
             this.tbrGramme.Size = new System.Drawing.Size(172, 45);
             this.tbrGramme.TabIndex = 2;
-            this.tbrGramme.TickFrequency = 100;
+            this.tbrGramme.TickFrequency = 10;
             this.tbrGramme.ValueChanged += new System.EventHandler(this.tbrGramme_ValueChanged);
             // 
             // cbxAlcool
@@ -129,6 +128,7 @@
             this.cbxAlcool.Name = "cbxAlcool";
             this.cbxAlcool.Size = new System.Drawing.Size(182, 21);
             this.cbxAlcool.TabIndex = 3;
+            this.cbxAlcool.SelectedIndexChanged += new System.EventHandler(this.cbxAlcool_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -150,6 +150,7 @@
             // 
             // btnBoir
             // 
+            this.btnBoir.Enabled = false;
             this.btnBoir.Location = new System.Drawing.Point(361, 407);
             this.btnBoir.Name = "btnBoir";
             this.btnBoir.Size = new System.Drawing.Size(75, 23);
@@ -167,24 +168,15 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Déjà bu :";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(180, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Prochain verre :";
-            // 
             // lblProch
             // 
             this.lblProch.AutoSize = true;
-            this.lblProch.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProch.Location = new System.Drawing.Point(268, 37);
+            this.lblProch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProch.Location = new System.Drawing.Point(375, 312);
             this.lblProch.Name = "lblProch";
-            this.lblProch.Size = new System.Drawing.Size(96, 55);
+            this.lblProch.Size = new System.Drawing.Size(28, 16);
             this.lblProch.TabIndex = 9;
-            this.lblProch.Text = "0%";
+            this.lblProch.Text = "0cl";
             // 
             // chart1
             // 
@@ -196,14 +188,13 @@
             chartArea1.AxisY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
             chartArea1.AxisY2.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
             chartArea1.AxisY2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.Name = "ChartArea1";
+            chartArea1.Name = "Taux d\'alcool";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(36, 111);
+            this.chart1.Location = new System.Drawing.Point(36, 101);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.ChartArea = "Taux d\'alcool";
             series1.Legend = "Legend1";
             series1.Name = "Taux d\'alcool";
             this.chart1.Series.Add(series1);
@@ -218,7 +209,6 @@
             this.ClientSize = new System.Drawing.Size(448, 442);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.lblProch);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBoir);
             this.Controls.Add(this.label2);
@@ -255,7 +245,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBoir;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblProch;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }

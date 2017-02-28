@@ -29,7 +29,7 @@ namespace AlcoTest
         }
         private void tbrGramme_ValueChanged(object sender, EventArgs e)
         {
-            lblProch.Text = tbrGramme.Value.ToString() + "%";
+            lblProch.Text = tbrGramme.Value.ToString() + "CL";
         }
 
         private void editerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,12 +51,25 @@ namespace AlcoTest
 
         private void btnBoir_Click(object sender, EventArgs e)
         {
+
+            chart1.Series["Taux d'alcool"].ChartType = SeriesChartType.FastLine;
+            chart1.Series["Taux d'alcool"].Color = Color.Blue;
+            chart1.ChartAreas["Taux d'alcool"].BorderDashStyle = ChartDashStyle.Solid;
+
             string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
             int pour = Convert.ToInt32(pourcent.Replace("%", ""));
             this.Ctrl.SetLitre(tbrGramme.Value);
             lblTaux.Text = this.Ctrl.boire(pour).ToString()+"mg/L de sang";
-            chart1.Series["Series2"].ChartArea = "ChartArea1";
+            chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.boire(pour).ToString());
+            chart1.Series["Taux d'alcool"].ChartArea = "Taux d'alcool";
         }
+
+        private void cbxAlcool_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnBoir.Enabled = true;
+        }
+
+
 
 
     }
