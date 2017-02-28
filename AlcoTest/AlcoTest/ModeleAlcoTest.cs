@@ -61,6 +61,8 @@ namespace AlcoTest
             AlcFav = new Dictionary<string, int>();
             ToutAlc = new Dictionary<string, int>();
             this.TauxAlc = 0;
+            this.Masse = 60;
+            this.Sexe = 0;
         }
         public double CalculerGrammeAlc(int pourcentage)
         {
@@ -76,9 +78,11 @@ namespace AlcoTest
             this.TauxAlc += gramme / (this.Masse * Tauxgenre);
             return this.TauxAlc;
         }
-        public void Rafraichir()
+        public double Rafraichir()
         {
-
+            //o.15 per h
+            this.TauxAlc-=0.0000416;
+            return this.TauxAlc;
         }
         public void DessineGraphique()
         {
@@ -106,6 +110,7 @@ namespace AlcoTest
             while (srAlc.EndOfStream == false)
             {
                 ligne = srAlc.ReadLine();
+                ligne = ligne.Replace("%", "");
                 this.ToutAlc.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
             }
             srAlc.Close();

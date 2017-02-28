@@ -99,10 +99,10 @@
             // lblTaux
             // 
             this.lblTaux.AutoSize = true;
-            this.lblTaux.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTaux.Location = new System.Drawing.Point(78, 37);
+            this.lblTaux.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaux.Location = new System.Drawing.Point(78, 54);
             this.lblTaux.Name = "lblTaux";
-            this.lblTaux.Size = new System.Drawing.Size(96, 55);
+            this.lblTaux.Size = new System.Drawing.Size(59, 33);
             this.lblTaux.TabIndex = 1;
             this.lblTaux.Text = "0%";
             // 
