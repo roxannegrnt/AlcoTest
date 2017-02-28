@@ -53,7 +53,7 @@ namespace AlcoTest
             string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
             int pour = Convert.ToInt32(pourcent.Replace("%", ""));
             this.Ctrl.SetLitre(tbrGramme.Value);
-            lblTaux.Text = this.Ctrl.boire(pour).ToString();
+            lblTaux.Text = this.Ctrl.boire(pour).ToString()+"mg/L de sang";
         }
 
 
