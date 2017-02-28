@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,8 +46,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblProch = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbrGramme)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -109,7 +114,7 @@
             // tbrGramme
             // 
             this.tbrGramme.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.tbrGramme.Location = new System.Drawing.Point(264, 283);
+            this.tbrGramme.Location = new System.Drawing.Point(264, 331);
             this.tbrGramme.Maximum = 2000;
             this.tbrGramme.Name = "tbrGramme";
             this.tbrGramme.Size = new System.Drawing.Size(172, 45);
@@ -120,7 +125,7 @@
             // cbxAlcool
             // 
             this.cbxAlcool.FormattingEnabled = true;
-            this.cbxAlcool.Location = new System.Drawing.Point(12, 295);
+            this.cbxAlcool.Location = new System.Drawing.Point(15, 343);
             this.cbxAlcool.Name = "cbxAlcool";
             this.cbxAlcool.Size = new System.Drawing.Size(182, 21);
             this.cbxAlcool.TabIndex = 3;
@@ -128,7 +133,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(261, 267);
+            this.label1.Location = new System.Drawing.Point(261, 315);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 4;
@@ -137,7 +142,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 267);
+            this.label2.Location = new System.Drawing.Point(15, 315);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 5;
@@ -181,11 +186,37 @@
             this.lblProch.TabIndex = 9;
             this.lblProch.Text = "0%";
             // 
+            // chart1
+            // 
+            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea1.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisX2.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea1.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea1.AxisY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY2.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea1.AxisY2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(36, 111);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Taux d\'alcool";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(380, 191);
+            this.chart1.TabIndex = 10;
+            this.chart1.Text = "chart1";
+            // 
             // VueAcloTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 442);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.lblProch);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -203,6 +234,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbrGramme)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,6 +257,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblProch;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

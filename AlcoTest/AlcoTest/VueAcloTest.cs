@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace AlcoTest
 {
@@ -54,6 +55,7 @@ namespace AlcoTest
             int pour = Convert.ToInt32(pourcent.Replace("%", ""));
             this.Ctrl.SetLitre(tbrGramme.Value);
             lblTaux.Text = this.Ctrl.boire(pour).ToString()+"mg/L de sang";
+            chart1.Series["Series2"].ChartArea = "ChartArea1";
         }
 
 
