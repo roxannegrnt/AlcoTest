@@ -60,13 +60,22 @@ namespace AlcoTest
             int pour = Convert.ToInt32(pourcent.Replace("%", ""));
             this.Ctrl.SetLitre(tbrGramme.Value);
             lblTaux.Text = this.Ctrl.boire(pour).ToString()+"mg/L de sang";
-            chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.boire(pour).ToString());
+            chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
             chart1.Series["Taux d'alcool"].ChartArea = "Taux d'alcool";
+            timer1.Enabled = true;
         }
 
         private void cbxAlcool_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnBoir.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.Ctrl.Rafraichir();
+            lblTaux.Text = this.Ctrl.GetTaux().ToString() + "mg/L de sang";
+            chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
+            chart1.Series["Taux d'alcool"].ChartArea = "Taux d'alcool";
         }
 
 

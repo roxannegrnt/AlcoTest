@@ -25,6 +25,10 @@ namespace AlcoTest
         {
             modele.CalculerGrammeAlc(pourcentage);
         }
+        public double GetTaux()
+        {
+            return modele.TauxAlc;
+        }
         public void SauverData(int paramMasse, char paramSexe)
         {
             modele.SauverData(paramMasse, paramSexe);
@@ -57,6 +61,10 @@ namespace AlcoTest
                 AfficherToutAlcool(filenameAlc);
                 return modele.ToutAlc;
             }
+        }
+        public void Rafraichir()
+        {
+           modele.Rafraichir();
         }
 
 

@@ -76,15 +76,14 @@ namespace AlcoTest
             double Tauxgenre = ((this.Sexe == 0) ? 0.6 : 0.7);
             //Quantity drank in cl * quantity of alcool for 1l gives grams for quantity drank.
             double gramme = (this.Litre * CalculerGrammeAlc(pourcentage)) / 100;
-            this.TauxAlc += (gramme / (this.Masse * Tauxgenre))/100;
+            this.TauxAlc += (gramme / (this.Masse * Tauxgenre))/10;
             this.TauxAlc = Math.Round(this.TauxAlc,2);
             return this.TauxAlc;
         }
-        public double Rafraichir()
+        public void Rafraichir()
         {
-            //o.15 per h
-            this.TauxAlc-=0.0000416;
-            return this.TauxAlc;
+            //15mg per h
+            this.TauxAlc-=0.00416;
         }
         public void DessineGraphique()
         {
