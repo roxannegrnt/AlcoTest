@@ -26,6 +26,11 @@ namespace AlcoTest
             {
                 cbxAlcool.Items.Add(item.Key + " , " + item.Value + "%");
             }
+
+            chart1.Series["Taux d'alcool"].Points.AddY(0);
+            chart1.Series["Line"].Points.AddY(50);
+            chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Seconds;
+
         }
         private void tbrGramme_ValueChanged(object sender, EventArgs e)
         {
@@ -54,6 +59,9 @@ namespace AlcoTest
 
             chart1.Series["Taux d'alcool"].ChartType = SeriesChartType.FastLine;
             chart1.Series["Taux d'alcool"].Color = Color.Blue;
+            chart1.Series["Line"].Color = Color.Red;
+            chart1.Series["Taux d'alcool"].BorderWidth = 3;
+            chart1.Series["Line"].BorderWidth = 5;
             chart1.ChartAreas["Taux d'alcool"].BorderDashStyle = ChartDashStyle.Solid;
 
             string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
@@ -61,7 +69,7 @@ namespace AlcoTest
             this.Ctrl.SetLitre(tbrGramme.Value);
             lblTaux.Text = this.Ctrl.boire(pour).ToString()+"mg/L de sang";
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
-            chart1.Series["Taux d'alcool"].ChartArea = "Taux d'alcool";
+            chart1.Series["Line"].Points.AddY(50);
             timer1.Enabled = true;
         }
 
@@ -75,7 +83,7 @@ namespace AlcoTest
             this.Ctrl.Rafraichir();
             lblTaux.Text = this.Ctrl.GetTaux().ToString() + "mg/L de sang";
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
-            chart1.Series["Taux d'alcool"].ChartArea = "Taux d'alcool";
+            chart1.Series["Line"].Points.AddY(50);
         }
 
 
