@@ -236,6 +236,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VueAcloTest";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VueAcloTest_FormClosing);
             this.Load += new System.EventHandler(this.VueAcloTest_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

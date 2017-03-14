@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
-
 namespace AlcoTest
 {
+    [Serializable()]
     public class ModeleAlcoTest
     {
         private double _masse;
@@ -15,7 +15,7 @@ namespace AlcoTest
         private Dictionary<string, int> _alcFav;
         private Dictionary<string, int> _toutAlc;
         private double _TauxAlc;
-        private int _timer;
+        private DateTime _timer;
 
         public double Masse
         {
@@ -51,7 +51,7 @@ namespace AlcoTest
             set { _TauxAlc = value; }
         }
 
-        public int Timer
+        public DateTime Timer
         {
             get { return _timer; }
             set { _timer = value; }
@@ -63,6 +63,7 @@ namespace AlcoTest
             this.TauxAlc = 0;
             this.Masse = 0.06;
             this.Sexe = 0;
+            this.Timer = DateTime.Now;
         }
         public double CalculerGrammeAlc(int pourcentage)
         {
@@ -82,14 +83,14 @@ namespace AlcoTest
         }
         public void Rafraichir()
         {
+            TimeSpan current = DateTime.Now - this.Timer;
+            int diff = Convert.ToInt32(current.TotalSeconds);
+            this.Timer = DateTime.Now;
             //15mg per h
-            this.TauxAlc-=0.00416;
+            this.TauxAlc-=0.00416*diff;
+            Math.Round(this.TauxAlc, 5);
         }
-        public void DessineGraphique()
-        {
-
-        }
-        public void SauverData(int paramMasse, char paramSexe)
+        public void SauverData(double paramMasse, char paramSexe)
         {
             this.Masse = paramMasse/1000;
             this.Sexe = ((paramSexe == 'F') ? 0 : 1);

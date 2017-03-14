@@ -32,7 +32,7 @@ namespace AlcoTest
         {
             
             Dictionary<string, int> dic = new Dictionary<string, int>();
-            OtherCtrl.SauverData(Convert.ToInt32(tbxMasse.Text), Convert.ToChar(cbxSexe.Text));
+            OtherCtrl.SauverData(Convert.ToDouble(tbxMasse.Text), Convert.ToChar(cbxSexe.Text));
             foreach (var items in lsbEditer.Items)
             {
                 string alc = items.ToString().Substring(0, items.ToString().IndexOf(","));

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace AlcoTest
 {
@@ -29,7 +32,7 @@ namespace AlcoTest
         {
             return modele.TauxAlc;
         }
-        public void SauverData(int paramMasse, char paramSexe)
+        public void SauverData(double paramMasse, char paramSexe)
         {
             modele.SauverData(paramMasse, paramSexe);
         }
@@ -65,6 +68,20 @@ namespace AlcoTest
         public void Rafraichir()
         {
            modele.Rafraichir();
+        }
+        public void SerializeModel()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, modele);
+            stream.Close();
+        }
+        public void DeserializeModel()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            ModeleAlcoTest modele = (ModeleAlcoTest)formatter.Deserialize(stream);
+            stream.Close();  
         }
 
 

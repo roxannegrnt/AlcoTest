@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
+
 namespace AlcoTest
 {
     public partial class VueAcloTest : Form
@@ -21,6 +22,7 @@ namespace AlcoTest
         private void VueAcloTest_Load(object sender, EventArgs e)
         {
             this.Ctrl = new ControleurAlcoTest(this);
+            Ctrl.DeserializeModel();
             Dictionary<string, int> Alc = this.Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
             foreach (var item in Alc)
             {
@@ -84,6 +86,12 @@ namespace AlcoTest
             lblTaux.Text = this.Ctrl.GetTaux().ToString() + "mg/L de sang";
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
             chart1.Series["Line"].Points.AddY(50);
+        }
+
+        private void VueAcloTest_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Ctrl.SerializeModel();
+
         }
 
 
