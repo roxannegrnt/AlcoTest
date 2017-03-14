@@ -25,6 +25,7 @@ namespace AlcoTest
             {
                 cbxFav.Items.Add(item.Key + "," + item.Value + "%");
             }
+            AjouterInfo();
             cbxFav.SelectedIndex = 0;
             cbxSexe.SelectedIndex = 0;
         }
@@ -47,6 +48,26 @@ namespace AlcoTest
         private void btnAddList_Click(object sender, EventArgs e)
         {
             lsbEditer.Items.Add(cbxFav.Text);
+
+
+        }
+        private void AjouterInfo()
+        {
+            double masse=OtherCtrl.Getmasse();
+            char sexe = OtherCtrl.GetSexe();
+            Dictionary<string, int> ListeFav = OtherCtrl.GetAlcFav();
+            foreach (var item in ListeFav)
+            {
+                lsbEditer.Items.Add(item.Key+", "+item.Value+"%");
+            }
+            if (masse!=0)
+            {
+                tbxMasse.Text = masse.ToString();
+            }
+            if (sexe!=0)
+            {
+                cbxSexe.Text = sexe.ToString();
+            }
 
 
         }

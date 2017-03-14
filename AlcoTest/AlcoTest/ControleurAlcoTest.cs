@@ -32,6 +32,19 @@ namespace AlcoTest
         {
             return modele.TauxAlc;
         }
+        public double Getmasse()
+        {
+            return modele.Masse*1000;
+        }
+        public char GetSexe()
+        {
+            char sexe= (modele.Sexe==0)?'F':'H';
+            return sexe;
+        }
+        public Dictionary<string,int> GetAlcFav()
+        {
+            return modele.AlcFav;
+        }
         public void SauverData(double paramMasse, char paramSexe)
         {
             modele.SauverData(paramMasse, paramSexe);
