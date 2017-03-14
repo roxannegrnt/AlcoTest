@@ -1,3 +1,4 @@
 Vodka,40
 vin,12
 champagne,12
+whisky,43

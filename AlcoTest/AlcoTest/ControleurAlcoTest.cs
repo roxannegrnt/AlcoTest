@@ -13,7 +13,7 @@ namespace AlcoTest
     {
         private ModeleAlcoTest modele;
         private VueAcloTest vueAlc;
-        private bool serializer = true;
+        private bool serializer = false;
 
         public bool Serializer
         {
@@ -24,7 +24,13 @@ namespace AlcoTest
         public ControleurAlcoTest(VueAcloTest mavue)
         {
             vueAlc = mavue;
-            modele = new ModeleAlcoTest();
+            
+                modele = DeserializeModel();
+           
+                //modele = new ModeleAlcoTest();
+           
+
+
         }
         public double boire(int pourcentage)
         {
@@ -41,14 +47,14 @@ namespace AlcoTest
         }
         public double Getmasse()
         {
-            return modele.Masse*1000;
+            return modele.Masse * 1000;
         }
         public char GetSexe()
         {
-            char sexe= (modele.Sexe==0)?'F':'H';
+            char sexe = (modele.Sexe == 0) ? 'F' : 'H';
             return sexe;
         }
-        public Dictionary<string,int> GetAlcFav()
+        public Dictionary<string, int> GetAlcFav()
         {
             return modele.AlcFav;
         }
@@ -74,7 +80,7 @@ namespace AlcoTest
         }
         public Dictionary<string, int> AfficherAlcDemande(string filenameAlcFav, string filenameAlc)
         {
-            modele.AfficherAlcoolFav(filenameAlcFav);
+            //modele.AfficherAlcoolFav(filenameAlcFav);
             if (modele.AlcFav.Count > 0)
             {
                 return modele.AlcFav;
@@ -87,22 +93,24 @@ namespace AlcoTest
         }
         public void Rafraichir()
         {
-           modele.Rafraichir();
+            modele.Rafraichir();
         }
         public void SerializeModel()
         {
+            serializer = true;
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, modele);
             stream.Close();
         }
-        public void DeserializeModel()
+        public ModeleAlcoTest DeserializeModel()
         {
             serializer = false;
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             ModeleAlcoTest modele = (ModeleAlcoTest)formatter.Deserialize(stream);
-            stream.Close();  
+            stream.Close();
+            return modele;
         }
 
 

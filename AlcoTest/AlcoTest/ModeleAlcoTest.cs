@@ -60,7 +60,7 @@ namespace AlcoTest
         {
             AlcFav = new Dictionary<string, int>();
             ToutAlc = new Dictionary<string, int>();
-            this.TauxAlc = 0;
+            //this.TauxAlc = 0;
             this.Masse = 0.06;
             this.Sexe = 0;
             this.Timer = DateTime.Now;
@@ -88,7 +88,7 @@ namespace AlcoTest
             this.Timer = DateTime.Now;
             //15mg per h
             this.TauxAlc-=0.00416*diff;
-            Math.Round(this.TauxAlc, 5);
+            this.TauxAlc=Math.Round(this.TauxAlc, 5);
         }
         public void SauverData(double paramMasse, char paramSexe)
         {
@@ -117,18 +117,18 @@ namespace AlcoTest
             }
             srAlc.Close();
         }
-        public void AfficherAlcoolFav(string filename)
-        {
-            string ligne = "";
-            StreamReader srAlc = new StreamReader(filename, Encoding.UTF8);
-            while (srAlc.EndOfStream == false)
-            {
-                ligne = srAlc.ReadLine();
+        //public void AfficherAlcoolFav(string filename)
+        //{
+        //    string ligne = "";
+        //    StreamReader srAlc = new StreamReader(filename, Encoding.UTF8);
+        //    while (srAlc.EndOfStream == false)
+        //    {
+        //        ligne = srAlc.ReadLine();
 
-                this.AlcFav.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
+        //        this.AlcFav.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
 
-            }
-            srAlc.Close();
-        }
+        //    }
+        //    srAlc.Close();
+        //}
     }
 }

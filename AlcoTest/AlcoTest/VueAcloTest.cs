@@ -23,21 +23,25 @@ namespace AlcoTest
         {
 
             this.Ctrl = new ControleurAlcoTest(this);
-
-            
-            Ctrl.DeserializeModel();
-            Ctrl.Serializer = true;
+            //Ctrl.DeserializeModel();
+            lblTaux.Text = Ctrl.GetTaux().ToString();
             Dictionary<string, int> Alc = this.Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
             foreach (var item in Alc)
             {
                 cbxAlcool.Items.Add(item.Key + " , " + item.Value + "%");
             }
 
-            if (this.Ctrl.Serializer == true)
+            if (!this.Ctrl.Serializer)
             {
+                AfficherGraphique();
                 chart1.Series["Taux d'alcool"].Points.AddY(Ctrl.GetTaux());
-
+                chart1.Series["Line"].Points.AddY(50);
                 this.Ctrl.Rafraichir();
+                chart1.Series["Taux d'alcool"].Points.AddY(Ctrl.GetTaux());
+                chart1.Series["Line"].Points.AddY(50);
+                timer1.Enabled = true;
+
+                
             }
             else
             {
@@ -45,7 +49,7 @@ namespace AlcoTest
                 chart1.Series["Line"].Points.AddY(50);
                 chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Seconds;
             }
-            
+
 
         }
         private void tbrGramme_ValueChanged(object sender, EventArgs e)
@@ -73,17 +77,12 @@ namespace AlcoTest
         private void btnBoir_Click(object sender, EventArgs e)
         {
 
-            chart1.Series["Taux d'alcool"].ChartType = SeriesChartType.FastLine;
-            chart1.Series["Taux d'alcool"].Color = Color.Blue;
-            chart1.Series["Line"].Color = Color.Red;
-            chart1.Series["Taux d'alcool"].BorderWidth = 3;
-            chart1.Series["Line"].BorderWidth = 5;
-            chart1.ChartAreas["Taux d'alcool"].BorderDashStyle = ChartDashStyle.Solid;
+            AfficherGraphique();
 
             string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
             int pour = Convert.ToInt32(pourcent.Replace("%", ""));
             this.Ctrl.SetLitre(tbrGramme.Value);
-            lblTaux.Text = this.Ctrl.boire(pour).ToString()+"mg/L de sang";
+            lblTaux.Text = this.Ctrl.boire(pour).ToString() + "mg/L de sang";
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
             chart1.Series["Line"].Points.AddY(50);
             timer1.Enabled = true;
@@ -107,7 +106,15 @@ namespace AlcoTest
             Ctrl.SerializeModel();
 
         }
-
+        private void AfficherGraphique()
+        {
+            chart1.Series["Taux d'alcool"].ChartType = SeriesChartType.FastLine;
+            chart1.Series["Taux d'alcool"].Color = Color.Blue;
+            chart1.Series["Line"].Color = Color.Red;
+            chart1.Series["Taux d'alcool"].BorderWidth = 3;
+            chart1.Series["Line"].BorderWidth = 5;
+            chart1.ChartAreas["Taux d'alcool"].BorderDashStyle = ChartDashStyle.Solid;
+        }
 
 
 
