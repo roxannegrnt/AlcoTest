@@ -13,6 +13,13 @@ namespace AlcoTest
     {
         private ModeleAlcoTest modele;
         private VueAcloTest vueAlc;
+        private bool serializer = true;
+
+        public bool Serializer
+        {
+            get { return serializer; }
+            set { serializer = value; }
+        }
 
         public ControleurAlcoTest(VueAcloTest mavue)
         {
@@ -91,6 +98,7 @@ namespace AlcoTest
         }
         public void DeserializeModel()
         {
+            serializer = false;
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             ModeleAlcoTest modele = (ModeleAlcoTest)formatter.Deserialize(stream);

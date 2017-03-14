@@ -21,17 +21,31 @@ namespace AlcoTest
         private ControleurAlcoTest Ctrl;
         private void VueAcloTest_Load(object sender, EventArgs e)
         {
+
             this.Ctrl = new ControleurAlcoTest(this);
+
+            
             Ctrl.DeserializeModel();
+            Ctrl.Serializer = true;
             Dictionary<string, int> Alc = this.Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
             foreach (var item in Alc)
             {
                 cbxAlcool.Items.Add(item.Key + " , " + item.Value + "%");
             }
 
-            chart1.Series["Taux d'alcool"].Points.AddY(0);
-            chart1.Series["Line"].Points.AddY(50);
-            chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Seconds;
+            if (this.Ctrl.Serializer == true)
+            {
+                chart1.Series["Taux d'alcool"].Points.AddY(Ctrl.GetTaux());
+
+                this.Ctrl.Rafraichir();
+            }
+            else
+            {
+                chart1.Series["Taux d'alcool"].Points.AddY(0);
+                chart1.Series["Line"].Points.AddY(50);
+                chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Seconds;
+            }
+            
 
         }
         private void tbrGramme_ValueChanged(object sender, EventArgs e)
