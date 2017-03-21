@@ -128,6 +128,19 @@ namespace AlcoTest
             }
             srAlc.Close();
         }
+        public void SupprimerAlcFav(string lsbItem ,string filename)
+        {
+            foreach (var item in this.AlcFav)
+	        {
+                if (lsbItem.Contains(item.Key))
+                {
+                    this.AlcFav.Remove(item.Key);
+                    break;
+                }
+	        }  
+        }
+
+
         //public void AfficherAlcoolFav(string filename)
         //{
         //    string ligne = "";

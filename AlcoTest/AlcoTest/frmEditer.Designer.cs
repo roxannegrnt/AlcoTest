@@ -37,6 +37,7 @@
             this.btnValider = new System.Windows.Forms.Button();
             this.btnAddList = new System.Windows.Forms.Button();
             this.cbxFav = new System.Windows.Forms.ComboBox();
+            this.btnSupprimer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -87,7 +88,6 @@
             // 
             // lsbEditer
             // 
-            this.lsbEditer.Enabled = false;
             this.lsbEditer.FormattingEnabled = true;
             this.lsbEditer.Location = new System.Drawing.Point(46, 168);
             this.lsbEditer.Name = "lsbEditer";
@@ -123,11 +123,22 @@
             this.cbxFav.Size = new System.Drawing.Size(124, 21);
             this.cbxFav.TabIndex = 10;
             // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Location = new System.Drawing.Point(46, 409);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
+            this.btnSupprimer.TabIndex = 11;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
             // frmEditer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 444);
+            this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.cbxFav);
             this.Controls.Add(this.btnAddList);
             this.Controls.Add(this.btnValider);
@@ -156,5 +167,6 @@
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Button btnAddList;
         private System.Windows.Forms.ComboBox cbxFav;
+        private System.Windows.Forms.Button btnSupprimer;
     }
 }

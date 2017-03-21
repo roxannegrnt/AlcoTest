@@ -107,6 +107,10 @@ namespace AlcoTest
             stream.Close();
             return modele;
         }
+        public void SupprimerAlcFav(string lsbItem, string filename)
+        {
+            modele.SupprimerAlcFav(lsbItem,filename);
+        }
 
 
     }
