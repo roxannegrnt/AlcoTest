@@ -23,7 +23,6 @@ namespace AlcoTest
         {
 
             this.Ctrl = new ControleurAlcoTest(this);
-            //Ctrl.DeserializeModel();
             lblTaux.Text = Ctrl.GetTaux().ToString();
             Dictionary<string, int> Alc = this.Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
             foreach (var item in Alc)

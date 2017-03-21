@@ -75,7 +75,6 @@ namespace AlcoTest
         }
         public Dictionary<string, int> AfficherAlcDemande(string filenameAlcFav, string filenameAlc)
         {
-            //modele.AfficherAlcoolFav(filenameAlcFav);
             if (modele.AlcFav.Count > 0)
             {
                 return modele.AlcFav;
