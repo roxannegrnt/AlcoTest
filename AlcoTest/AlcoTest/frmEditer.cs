@@ -46,7 +46,23 @@ namespace AlcoTest
 
         private void btnAddList_Click(object sender, EventArgs e)
         {
-            lsbEditer.Items.Add(cbxFav.Text);
+            int cpt = 0;
+            foreach (var item in lsbEditer.Items)
+            {
+                if (item.ToString()==cbxFav.Text)
+                {
+                    cpt++;
+                }
+            }
+            if (cpt==0)
+            {
+                lsbEditer.Items.Add(cbxFav.Text);
+            }
+            else
+            {
+                MessageBox.Show("L'alcool que vous voulez ajouter existe déjà dans la liste", "Erreur");
+            }
+           
 
 
         }
@@ -57,7 +73,7 @@ namespace AlcoTest
             Dictionary<string, int> ListeFav = OtherCtrl.GetAlcFav();
             foreach (var item in ListeFav)
             {
-                lsbEditer.Items.Add(item.Key+", "+item.Value+"%");
+                lsbEditer.Items.Add(item.Key+","+item.Value+"%");
             }
             if (masse!=0)
             {
