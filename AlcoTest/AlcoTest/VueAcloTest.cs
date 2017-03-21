@@ -99,6 +99,7 @@ namespace AlcoTest
             lblTaux.Text = this.Ctrl.GetTaux().ToString() + "mg/L de sang";
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
             chart1.Series["Line"].Points.AddY(50);
+            Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
         }
 
         private void VueAcloTest_FormClosing(object sender, FormClosingEventArgs e)

@@ -48,7 +48,18 @@ namespace AlcoTest
         public double TauxAlc
         {
             get { return _TauxAlc; }
-            set { _TauxAlc = value; }
+            set
+            {
+                if (value<0)
+                {
+                    _TauxAlc = 0;
+                }
+                else
+                {
+                    _TauxAlc = value;
+                }
+                
+                 }
         }
 
         public DateTime Timer

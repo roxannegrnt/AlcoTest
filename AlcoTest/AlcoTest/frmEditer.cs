@@ -27,7 +27,6 @@ namespace AlcoTest
             }
             AjouterInfo();
             cbxFav.SelectedIndex = 0;
-            cbxSexe.SelectedIndex = 0;
         }
         private void btnValider_Click(object sender, EventArgs e)
         {
@@ -66,7 +65,7 @@ namespace AlcoTest
             }
             if (sexe!=0)
             {
-                cbxSexe.Text = sexe.ToString();
+                cbxSexe.SelectedItem = sexe.ToString();
             }
 
 

@@ -26,11 +26,6 @@ namespace AlcoTest
             vueAlc = mavue;
             
                 modele = DeserializeModel();
-           
-                //modele = new ModeleAlcoTest();
-           
-
-
         }
         public double boire(int pourcentage)
         {
