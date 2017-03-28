@@ -52,10 +52,6 @@ namespace AlcoTest
 
 
         }
-        private void tbrGramme_ValueChanged(object sender, EventArgs e)
-        {
-            lblProch.Text = tbrGramme.Value.ToString() + "CL";
-        }
 
         private void editerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -81,7 +77,7 @@ namespace AlcoTest
 
             string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
             int pour = Convert.ToInt32(pourcent.Replace("%", ""));
-            this.Ctrl.SetLitre(tbrGramme.Value);
+            this.Ctrl.SetLitre(Convert.ToInt32(cbxQteAlc.SelectedItem.ToString()));
             lblTaux.Text = this.Ctrl.boire(pour).ToString() + "mg/L de sang";
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
             chart1.Series["Line"].Points.AddY(50);
