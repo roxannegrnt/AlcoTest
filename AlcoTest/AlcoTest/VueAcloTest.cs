@@ -119,8 +119,10 @@ namespace AlcoTest
             chart1.Series["Taux d'alcool"].Color = Color.Blue;
             chart1.Series["Line"].Color = Color.Red;
             chart1.Series["Taux d'alcool"].BorderWidth = 3;
-            chart1.Series["Line"].BorderWidth = 5;
+            chart1.Series["Line"].BorderWidth = 2;
             chart1.ChartAreas["Taux d'alcool"].BorderDashStyle = ChartDashStyle.Solid;
+            chart1.Series["Taux d'alcool"].LegendText = "Taux d'alcool";
+            chart1.Series["Line"].LegendText = "Limite Conduite";
         }
 
 
