@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Authors: Roxanne Grant and Ardi Ramushi
+ * Project: AlcoTest
+ * Description: Gives you your level of alcohol according to what you drink
+ * Version: 1.0
+ * Date: April 2017
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +20,7 @@ namespace AlcoTest
     {
         private ModeleAlcoTest modele;
         private VueAcloTest vueAlc;
-        private bool serializer = false;
+        private bool serializer=true;
 
         public bool Serializer
         {
@@ -40,19 +47,23 @@ namespace AlcoTest
         {
             return modele.TauxAlc;
         }
+        //Returns masse
         public double Getmasse()
         {
             return modele.Masse * 1000;
         }
+        //Returns sexe, 0 is female, 1 is male
         public char GetSexe()
         {
             char sexe = (modele.Sexe == 0) ? 'F' : 'H';
             return sexe;
         }
+        //Returns dictionary of favorite alcohols
         public Dictionary<string, int> GetAlcFav()
         {
             return modele.AlcFav;
         }
+        //Saves settings 
         public void SauverData(double paramMasse, char paramSexe)
         {
             modele.SauverData(paramMasse, paramSexe);
@@ -65,6 +76,7 @@ namespace AlcoTest
         {
             modele.Litre = litres;
         }
+        //Returns all alcohol from file Alcoool.txt
         public Dictionary<string, int> AfficherToutAlcool(string filename)
         {
             modele.AfficherToutAlcool(filename);
@@ -72,6 +84,7 @@ namespace AlcoTest
         }
         public Dictionary<string, int> AfficherAlcDemande(string filenameAlcFav, string filenameAlc)
         {
+            //If nothing in favorite alcohol file then uploads file with all alcohols otherwise uploads favorite alcohol file
             if (modele.AlcFav.Count > 0)
             {
                 return modele.AlcFav;
@@ -86,6 +99,7 @@ namespace AlcoTest
         {
             modele.Rafraichir();
         }
+        //Serializes the Model when program is closed
         public void SerializeModel()
         {
             serializer = true;
@@ -94,6 +108,7 @@ namespace AlcoTest
             formatter.Serialize(stream, modele);
             stream.Close();
         }
+        //Deserializes the Model when program is opened
         public ModeleAlcoTest DeserializeModel()
         {
             serializer = false;

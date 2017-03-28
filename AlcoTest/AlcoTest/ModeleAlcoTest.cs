@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Authors: Roxanne Grant and Ardi Ramushi
+ * Project: AlcoTest
+ * Description: Gives you your level of alcohol according to what you drink
+ * Version: 1.0
+ * Date: April 2017
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -94,10 +101,12 @@ namespace AlcoTest
         }
         public void Rafraichir()
         {
+            //Get's diffrence between now and last timer call
             TimeSpan current = DateTime.Now - this.Timer;
             int diff = Convert.ToInt32(current.TotalSeconds);
             this.Timer = DateTime.Now;
             //15mg per h
+            //Substract to level diffrence, happens even during serialization
             this.TauxAlc -= 0.00416 * diff;
             this.TauxAlc = Math.Round(this.TauxAlc, 5);
         }
@@ -108,6 +117,7 @@ namespace AlcoTest
         }
         public void SauverAlcfav(Dictionary<string, int> paramListAlc, string filename)
         {
+            //Save favorite alcohols in favorite alcohol file
             StreamWriter swAlc = new StreamWriter(filename);
             foreach (var item in paramListAlc)
             {
@@ -118,6 +128,7 @@ namespace AlcoTest
         }
         public void AfficherToutAlcool(string filename)
         {
+            //Gets all alcohols from all alcohol file
             string ligne = "";
             StreamReader srAlc = new StreamReader(filename, Encoding.UTF8);
             this.ToutAlc.Clear();
@@ -140,20 +151,5 @@ namespace AlcoTest
                 }
             }
         }
-
-
-        //public void AfficherAlcoolFav(string filename)
-        //{
-        //    string ligne = "";
-        //    StreamReader srAlc = new StreamReader(filename, Encoding.UTF8);
-        //    while (srAlc.EndOfStream == false)
-        //    {
-        //        ligne = srAlc.ReadLine();
-
-        //        this.AlcFav.Add(ligne.Split(',')[0], Convert.ToInt32(ligne.Split(',')[1]));
-
-        //    }
-        //    srAlc.Close();
-        //}
     }
 }

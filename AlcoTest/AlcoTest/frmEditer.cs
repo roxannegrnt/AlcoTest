@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Authors: Roxanne Grant and Ardi Ramushi
+ * Project: AlcoTest
+ * Description: Gives you your level of alcohol according to what you drink
+ * Version: 1.0
+ * Date: April 2017
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,7 +37,7 @@ namespace AlcoTest
         }
         private void btnValider_Click(object sender, EventArgs e)
         {
-            
+            //Validates new parameters
             Dictionary<string, int> dic = new Dictionary<string, int>();
             OtherCtrl.SauverData(Convert.ToDouble(tbxMasse.Text), Convert.ToChar(cbxSexe.Text));
             foreach (var items in lsbEditer.Items)
@@ -46,6 +53,7 @@ namespace AlcoTest
 
         private void btnAddList_Click(object sender, EventArgs e)
         {
+            //Adds alcohol to list box and list of favorite alcohols
             int cpt = 0;
             foreach (var item in lsbEditer.Items)
             {
@@ -68,6 +76,7 @@ namespace AlcoTest
         }
         private void AjouterInfo()
         {
+            //Gets info after deserialization
             double masse=OtherCtrl.Getmasse();
             char sexe = OtherCtrl.GetSexe();
             Dictionary<string, int> ListeFav = OtherCtrl.GetAlcFav();
@@ -89,6 +98,7 @@ namespace AlcoTest
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            //When the Delete alcool button is pressed
             lsbEditer.Items.Remove(lsbEditer.SelectedIndex);
             OtherCtrl.SupprimerAlcFav(lsbEditer.SelectedItem.ToString(), "..\\..\\Resources\\AlcoolFav.txt");
             lsbEditer.Items.Clear();
