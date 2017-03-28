@@ -24,8 +24,8 @@ namespace AlcoTest
         public ControleurAlcoTest(VueAcloTest mavue)
         {
             vueAlc = mavue;
-            
-                modele = DeserializeModel();
+
+            modele = DeserializeModel();
         }
         public double boire(int pourcentage)
         {
@@ -67,10 +67,7 @@ namespace AlcoTest
         }
         public Dictionary<string, int> AfficherToutAlcool(string filename)
         {
-            if (modele.ToutAlc.Count == 0)
-            {
-                modele.AfficherToutAlcool(filename);
-            }
+            modele.AfficherToutAlcool(filename);
             return modele.ToutAlc;
         }
         public Dictionary<string, int> AfficherAlcDemande(string filenameAlcFav, string filenameAlc)
@@ -108,7 +105,7 @@ namespace AlcoTest
         }
         public void SupprimerAlcFav(string lsbItem, string filename)
         {
-            modele.SupprimerAlcFav(lsbItem,filename);
+            modele.SupprimerAlcFav(lsbItem, filename);
         }
 
 

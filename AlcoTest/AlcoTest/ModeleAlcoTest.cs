@@ -50,16 +50,16 @@ namespace AlcoTest
             get { return _TauxAlc; }
             set
             {
-                if (value<0)
+                if (value < 0)
                 {
                     _TauxAlc = 0;
                 }
                 else
                 {
-                    _TauxAlc=value;
+                    _TauxAlc = value;
                 }
-                
-                 }
+
+            }
         }
 
         public DateTime Timer
@@ -88,8 +88,8 @@ namespace AlcoTest
             double Tauxgenre = ((this.Sexe == 0) ? 0.6 : 0.7);
             //Quantity drank in cl * quantity of alcool for 1l gives grams for quantity drank.
             double gramme = (this.Litre * CalculerGrammeAlc(pourcentage)) / 100;
-            this.TauxAlc += (gramme / (this.Masse * Tauxgenre))/10;
-            this.TauxAlc = Math.Round(this.TauxAlc,2);
+            this.TauxAlc += (gramme / (this.Masse * Tauxgenre)) / 10;
+            this.TauxAlc = Math.Round(this.TauxAlc, 2);
             return this.TauxAlc;
         }
         public void Rafraichir()
@@ -98,12 +98,12 @@ namespace AlcoTest
             int diff = Convert.ToInt32(current.TotalSeconds);
             this.Timer = DateTime.Now;
             //15mg per h
-            this.TauxAlc-=0.00416*diff;
-            this.TauxAlc=Math.Round(this.TauxAlc, 5);
+            this.TauxAlc -= 0.00416 * diff;
+            this.TauxAlc = Math.Round(this.TauxAlc, 5);
         }
         public void SauverData(double paramMasse, char paramSexe)
         {
-            this.Masse = paramMasse/1000;
+            this.Masse = paramMasse / 1000;
             this.Sexe = ((paramSexe == 'F') ? 0 : 1);
         }
         public void SauverAlcfav(Dictionary<string, int> paramListAlc, string filename)
@@ -120,6 +120,7 @@ namespace AlcoTest
         {
             string ligne = "";
             StreamReader srAlc = new StreamReader(filename, Encoding.UTF8);
+            this.ToutAlc.Clear();
             while (srAlc.EndOfStream == false)
             {
                 ligne = srAlc.ReadLine();
@@ -128,16 +129,16 @@ namespace AlcoTest
             }
             srAlc.Close();
         }
-        public void SupprimerAlcFav(string lsbItem ,string filename)
+        public void SupprimerAlcFav(string lsbItem, string filename)
         {
             foreach (var item in this.AlcFav)
-	        {
+            {
                 if (lsbItem.Contains(item.Key))
                 {
                     this.AlcFav.Remove(item.Key);
                     break;
                 }
-	        }  
+            }
         }
 
 

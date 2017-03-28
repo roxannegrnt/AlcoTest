@@ -40,7 +40,7 @@ namespace AlcoTest
                 chart1.Series["Line"].Points.AddY(50);
                 timer1.Enabled = true;
 
-                
+
             }
             else
             {
@@ -48,16 +48,26 @@ namespace AlcoTest
                 chart1.Series["Line"].Points.AddY(50);
                 chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Seconds;
             }
-
-
+            
         }
 
         private void editerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            timer1.Enabled = false;
             frmEditer editer = new frmEditer(this.Ctrl);
-            editer.ShowDialog();
+            editer.Show();
+            editer.FormClosed += new FormClosedEventHandler(editer_FormClosed);
         }
-
+        void editer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            cbxAlcool.Items.Clear();
+            Dictionary<string, int> Alc = this.Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
+            foreach (var item in Alc)
+            {
+                cbxAlcool.Items.Add(item.Key + " , " + item.Value + "%");
+            }
+            timer1.Enabled = true;
+        }
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
@@ -95,6 +105,7 @@ namespace AlcoTest
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
             chart1.Series["Line"].Points.AddY(50);
             Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
+
         }
 
         private void VueAcloTest_FormClosing(object sender, FormClosingEventArgs e)

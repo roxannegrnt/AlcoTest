@@ -5,4 +5,3 @@ champagne,12%
 whisky,43%
 rhum,44%
 cognac,40%
-
