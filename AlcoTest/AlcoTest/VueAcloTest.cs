@@ -77,6 +77,7 @@ namespace AlcoTest
             {
                 cbxAlcool.Items.Add(item.Key + " , " + item.Value + "%");
             }
+            cbxAlcool.SelectedIndex = 0;
         }
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -91,20 +92,28 @@ namespace AlcoTest
 
         private void btnBoir_Click(object sender, EventArgs e)
         {
-            AfficherGraphique();
-            //Formats entry to calculate alcohol level
-            string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
-            int pour = Convert.ToInt32(pourcent.Replace("%", ""));
-            this.Ctrl.SetLitre(Convert.ToInt32(cbxQteAlc.SelectedItem.ToString()));
-            //updates level of alcohol and adds point in chart
-            lblTaux.Text = this.Ctrl.boire(pour).ToString() + "mg/L de sang";
-            chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
-            chart1.Series["Line"].Points.AddY(50);
-            timer1.Enabled = true;
+            if (cbxQteAlc.SelectedIndex > 0)
+            {
+                AfficherGraphique();
+                //Formats entry to calculate alcohol level
+                string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
+                int pour = Convert.ToInt32(pourcent.Replace("%", ""));
+                this.Ctrl.SetLitre(Convert.ToInt32(cbxQteAlc.SelectedItem.ToString()));
+                //updates level of alcohol and adds point in chart
+                lblTaux.Text = this.Ctrl.boire(pour).ToString() + "mg/L de sang";
+                chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
+                chart1.Series["Line"].Points.AddY(50);
+                timer1.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Veuillez choisir une quantitée d'alcool", "Erreur");
+            }
         }
 
         private void cbxAlcool_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             btnBoir.Enabled = true;
         }
 

@@ -1,5 +1,5 @@
 Vodka,40
 vin,12
-whisky,43
+champagne,12
 biere,5
 rhum,44
