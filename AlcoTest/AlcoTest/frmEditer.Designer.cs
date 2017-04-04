@@ -76,6 +76,7 @@
             // 
             // cbxSexe
             // 
+            this.cbxSexe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSexe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbxSexe.FormattingEnabled = true;
             this.cbxSexe.Items.AddRange(new object[] {
@@ -116,6 +117,7 @@
             // 
             // cbxFav
             // 
+            this.cbxFav.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFav.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbxFav.FormattingEnabled = true;
             this.cbxFav.Location = new System.Drawing.Point(127, 96);

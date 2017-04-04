@@ -113,6 +113,7 @@
             // 
             // cbxAlcool
             // 
+            this.cbxAlcool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxAlcool.FormattingEnabled = true;
             this.cbxAlcool.Location = new System.Drawing.Point(15, 343);
             this.cbxAlcool.Name = "cbxAlcool";
@@ -195,6 +196,7 @@
             // 
             // cbxQteAlc
             // 
+            this.cbxQteAlc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxQteAlc.FormattingEnabled = true;
             this.cbxQteAlc.Items.AddRange(new object[] {
             "5",
