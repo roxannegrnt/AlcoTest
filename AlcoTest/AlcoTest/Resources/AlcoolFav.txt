@@ -1,6 +1,0 @@
-Vodka,40
-vin,12
-champagne,12
-biere,5
-rhum,44
-cognac,40

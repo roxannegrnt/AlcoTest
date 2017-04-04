@@ -99,7 +99,7 @@ namespace AlcoTest
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             //When the Delete alcool button is pressed
-            if (lsbEditer.SelectedIndex>0)
+            if (lsbEditer.SelectedIndex>=0)
             {
                 lsbEditer.Items.Remove(lsbEditer.SelectedIndex);
                 OtherCtrl.SupprimerAlcFav(lsbEditer.SelectedItem.ToString(), "..\\..\\Resources\\AlcoolFav.txt");
