@@ -32,7 +32,7 @@ namespace AlcoTest
             this.Ctrl = new ControleurAlcoTest(this);
             //Refresh at start to show level
             this.Ctrl.Rafraichir();
-            lblTaux.Text = Ctrl.GetTaux().ToString();
+            lblTaux.Text = Math.Round(Ctrl.GetTaux(), 2).ToString() + "g/L de sang";
             Dictionary<string, int> Alc = this.Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
             foreach (var item in Alc)
             {
@@ -92,7 +92,7 @@ namespace AlcoTest
 
         private void btnBoir_Click(object sender, EventArgs e)
         {
-            if (cbxQteAlc.SelectedIndex > 0)
+            if (cbxQteAlc.SelectedIndex >= 0)
             {
                 AfficherGraphique();
                 //Formats entry to calculate alcohol level
@@ -100,7 +100,7 @@ namespace AlcoTest
                 int pour = Convert.ToInt32(pourcent.Replace("%", ""));
                 this.Ctrl.SetLitre(Convert.ToInt32(cbxQteAlc.SelectedItem.ToString()));
                 //updates level of alcohol and adds point in chart
-                lblTaux.Text = this.Ctrl.boire(pour).ToString() + "mg/L de sang";
+                lblTaux.Text = Math.Round(this.Ctrl.boire(pour),2).ToString() + "g/L de sang";
                 chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
                 chart1.Series["Line"].Points.AddY(50);
                 timer1.Enabled = true;
@@ -121,7 +121,7 @@ namespace AlcoTest
         {
             //At each tick, updates level of alcohol and adds point in chart
             this.Ctrl.Rafraichir();
-            lblTaux.Text = this.Ctrl.GetTaux().ToString() + "mg/L de sang";
+            lblTaux.Text = Math.Round(this.Ctrl.GetTaux(),2).ToString() + "g/L de sang";
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
             chart1.Series["Line"].Points.AddY(50);
             Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");

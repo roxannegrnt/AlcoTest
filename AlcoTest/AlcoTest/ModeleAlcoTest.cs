@@ -78,7 +78,6 @@ namespace AlcoTest
         {
             AlcFav = new Dictionary<string, int>();
             ToutAlc = new Dictionary<string, int>();
-            //this.TauxAlc = 0;
             this.Masse = 0.06;
             this.Sexe = 0;
             this.Timer = DateTime.Now;
@@ -86,7 +85,6 @@ namespace AlcoTest
         public double CalculerGrammeAlc(int pourcentage)
         {
             // grams of alcool for 1L.
-            double gramsL = (pourcentage * 800) / 100;
             return (pourcentage * 800) / 100;
         }
         public double Boire(int pourcentage)
@@ -95,8 +93,7 @@ namespace AlcoTest
             double Tauxgenre = ((this.Sexe == 0) ? 0.6 : 0.7);
             //Quantity drank in cl * quantity of alcool for 1l gives grams for quantity drank.
             double gramme = (this.Litre * CalculerGrammeAlc(pourcentage)) / 100;
-            this.TauxAlc += (gramme / (this.Masse * Tauxgenre)) / 10;
-            this.TauxAlc = Math.Round(this.TauxAlc, 2);
+            this.TauxAlc += (gramme / (this.Masse * Tauxgenre)) / 1000;
             return this.TauxAlc;
         }
         public void Rafraichir()
@@ -107,8 +104,7 @@ namespace AlcoTest
             this.Timer = DateTime.Now;
             //15mg per h
             //Substract to level diffrence, happens even during serialization
-            this.TauxAlc -= 0.00416 * diff;
-            this.TauxAlc = Math.Round(this.TauxAlc, 5);
+            this.TauxAlc -= 0.0000416 * diff;
         }
         public void SauverData(double paramMasse, char paramSexe)
         {
