@@ -99,14 +99,22 @@ namespace AlcoTest
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             //When the Delete alcool button is pressed
-            lsbEditer.Items.Remove(lsbEditer.SelectedIndex);
-            OtherCtrl.SupprimerAlcFav(lsbEditer.SelectedItem.ToString(), "..\\..\\Resources\\AlcoolFav.txt");
-            lsbEditer.Items.Clear();
-            Dictionary<string, int> ListeFav = OtherCtrl.GetAlcFav();
-            foreach (var item in ListeFav)
+            if (lsbEditer.SelectedIndex>0)
             {
-                lsbEditer.Items.Add(item.Key + ", " + item.Value + "%");
+                lsbEditer.Items.Remove(lsbEditer.SelectedIndex);
+                OtherCtrl.SupprimerAlcFav(lsbEditer.SelectedItem.ToString(), "..\\..\\Resources\\AlcoolFav.txt");
+                lsbEditer.Items.Clear();
+                Dictionary<string, int> ListeFav = OtherCtrl.GetAlcFav();
+                foreach (var item in ListeFav)
+                {
+                    lsbEditer.Items.Add(item.Key + ", " + item.Value + "%");
+                }
             }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un élément à supprimer", "Supression impossible");
+            }
+            
            
         }
 
