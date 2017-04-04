@@ -43,17 +43,17 @@ namespace AlcoTest
             {
                 AfficherGraphique();
                 chart1.Series["Taux d'alcool"].Points.AddY(Ctrl.GetTaux());
-                chart1.Series["Line"].Points.AddY(50);
+                chart1.Series["Line"].Points.AddY(0.5);
                 this.Ctrl.Rafraichir();
                 chart1.Series["Taux d'alcool"].Points.AddY(Ctrl.GetTaux());
-                chart1.Series["Line"].Points.AddY(50);
+                chart1.Series["Line"].Points.AddY(0.5);
                 timer1.Enabled = true;
             }
                 //else create new chart
             else
             {
                 chart1.Series["Taux d'alcool"].Points.AddY(0);
-                chart1.Series["Line"].Points.AddY(50);
+                chart1.Series["Line"].Points.AddY(0.5);
                 chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Seconds;
             }
             //stop timer when alcohol level is at 0
@@ -102,7 +102,7 @@ namespace AlcoTest
                 //updates level of alcohol and adds point in chart
                 lblTaux.Text = Math.Round(this.Ctrl.boire(pour),2).ToString() + "g/L de sang";
                 chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
-                chart1.Series["Line"].Points.AddY(50);
+                chart1.Series["Line"].Points.AddY(0.5);
                 timer1.Enabled = true;
             }
             else
@@ -123,7 +123,7 @@ namespace AlcoTest
             this.Ctrl.Rafraichir();
             lblTaux.Text = Math.Round(this.Ctrl.GetTaux(),2).ToString() + "g/L de sang";
             chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
-            chart1.Series["Line"].Points.AddY(50);
+            chart1.Series["Line"].Points.AddY(0.5);
             Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
 
         }
@@ -136,6 +136,8 @@ namespace AlcoTest
         private void AfficherGraphique()
         {
             //Design of chart
+            chart1.ChartAreas["Taux d'alcool"].AxisY.Maximum = 1;
+            chart1.ChartAreas["Taux d'alcool"].AxisY.Interval = 0.1;
             chart1.Series["Taux d'alcool"].ChartType = SeriesChartType.FastLine;
             chart1.Series["Taux d'alcool"].Color = Color.Blue;
             chart1.Series["Line"].Color = Color.Red;
