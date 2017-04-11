@@ -54,7 +54,7 @@ namespace AlcoTest
             {
                 chart1.Series["Taux d'alcool"].Points.AddY(0);
                 chart1.Series["Line"].Points.AddY(0.5);
-                chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Seconds;
+                chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Hours;
             }
             //stop timer when alcohol level is at 0
             if (this.Ctrl.GetTaux() <= 0)
