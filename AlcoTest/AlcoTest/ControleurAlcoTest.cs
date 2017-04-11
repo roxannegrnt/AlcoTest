@@ -122,7 +122,14 @@ namespace AlcoTest
         {
             modele.SupprimerAlcFav(lsbItem, filename);
         }
-
+        public void setTaux(double value)
+        {
+            modele.TauxAlc = value;
+        }
+        public void ClearFav()
+        {
+            modele.AlcFav.Clear();
+        }
 
     }
 }
