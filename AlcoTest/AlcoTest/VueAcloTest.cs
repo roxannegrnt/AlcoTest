@@ -148,6 +148,19 @@ namespace AlcoTest
             chart1.Series["Line"].LegendText = "Limite Conduite";
         }
 
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            
+            this.Ctrl.setTaux(0);
+            lblTaux.Text = this.Ctrl.GetTaux().ToString();
+            this.Ctrl.ClearFav();
+            this.Ctrl.SauverData(60,'F');
+            chart1.Series[0].Points.Clear();
+            
+
+        }
+
 
 
     }

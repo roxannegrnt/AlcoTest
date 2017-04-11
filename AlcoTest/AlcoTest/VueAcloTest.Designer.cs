@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +48,7 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.cbxQteAlc = new System.Windows.Forms.ComboBox();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +60,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(448, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(515, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,6 +68,7 @@
             // 
             this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editerToolStripMenuItem,
+            this.resetToolStripMenuItem,
             this.quitterToolStripMenuItem});
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
@@ -115,7 +117,7 @@
             // 
             this.cbxAlcool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxAlcool.FormattingEnabled = true;
-            this.cbxAlcool.Location = new System.Drawing.Point(15, 343);
+            this.cbxAlcool.Location = new System.Drawing.Point(12, 472);
             this.cbxAlcool.Name = "cbxAlcool";
             this.cbxAlcool.Size = new System.Drawing.Size(182, 21);
             this.cbxAlcool.TabIndex = 3;
@@ -124,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(261, 315);
+            this.label1.Location = new System.Drawing.Point(12, 496);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 4;
@@ -133,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 315);
+            this.label2.Location = new System.Drawing.Point(12, 456);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 5;
@@ -142,9 +144,9 @@
             // btnBoir
             // 
             this.btnBoir.Enabled = false;
-            this.btnBoir.Location = new System.Drawing.Point(361, 407);
+            this.btnBoir.Location = new System.Drawing.Point(200, 472);
             this.btnBoir.Name = "btnBoir";
-            this.btnBoir.Size = new System.Drawing.Size(75, 23);
+            this.btnBoir.Size = new System.Drawing.Size(86, 63);
             this.btnBoir.TabIndex = 6;
             this.btnBoir.Text = "Boir !!";
             this.btnBoir.UseVisualStyleBackColor = true;
@@ -161,32 +163,32 @@
             // 
             // chart1
             // 
-            chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
-            chartArea1.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.AxisX2.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
-            chartArea1.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
-            chartArea1.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea1.AxisY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.AxisY2.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
-            chartArea1.AxisY2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea1.Name = "Taux d\'alcool";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "LegendGraph";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea2.AxisX.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea2.AxisX2.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea2.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea2.AxisY.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea2.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea2.AxisY.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea2.AxisY2.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
+            chartArea2.AxisY2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea2.Name = "Taux d\'alcool";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "LegendGraph";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(25, 99);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "Taux d\'alcool";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "LegendGraph";
-            series1.Name = "Taux d\'alcool";
-            series2.ChartArea = "Taux d\'alcool";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "LegendGraph";
-            series2.Name = "Line";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(380, 191);
+            series3.ChartArea = "Taux d\'alcool";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "LegendGraph";
+            series3.Name = "Taux d\'alcool";
+            series4.ChartArea = "Taux d\'alcool";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "LegendGraph";
+            series4.Name = "Line";
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(456, 331);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
             // 
@@ -208,16 +210,23 @@
             "50",
             "75",
             "100"});
-            this.cbxQteAlc.Location = new System.Drawing.Point(264, 343);
+            this.cbxQteAlc.Location = new System.Drawing.Point(12, 512);
             this.cbxQteAlc.Name = "cbxQteAlc";
-            this.cbxQteAlc.Size = new System.Drawing.Size(172, 21);
+            this.cbxQteAlc.Size = new System.Drawing.Size(182, 21);
             this.cbxQteAlc.TabIndex = 11;
+            // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.resetToolStripMenuItem.Text = "&Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
             // VueAcloTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 442);
+            this.ClientSize = new System.Drawing.Size(515, 547);
             this.Controls.Add(this.cbxQteAlc);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.label3);
@@ -257,6 +266,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox cbxQteAlc;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
     }
 }
 
