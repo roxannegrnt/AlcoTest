@@ -26,6 +26,7 @@ namespace AlcoTest
             InitializeComponent();
         }
         private ControleurAlcoTest Ctrl;
+        int cpt;
         private void VueAcloTest_Load(object sender, EventArgs e)
         {
 
@@ -41,19 +42,17 @@ namespace AlcoTest
             //If form was Serialized gets info from model 
             if (!this.Ctrl.Serializer)
             {
+                cpt = 0;
                 AfficherGraphique();
-                chart1.Series["Taux d'alcool"].Points.AddY(Ctrl.GetTaux());
-                chart1.Series["Line"].Points.AddY(0.5);
+                
+                chart1.Series["Taux d'alcool"].Points.AddY(cpt, Ctrl.GetTaux());
                 this.Ctrl.Rafraichir();
-                chart1.Series["Taux d'alcool"].Points.AddY(Ctrl.GetTaux());
-                chart1.Series["Line"].Points.AddY(0.5);
                 timer1.Enabled = true;
             }
-                //else create new chart
+            //else create new chart
             else
             {
                 chart1.Series["Taux d'alcool"].Points.AddY(0);
-                chart1.Series["Line"].Points.AddY(0.5);
                 chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Hours;
             }
             //stop timer when alcohol level is at 0
@@ -94,15 +93,16 @@ namespace AlcoTest
         {
             if (cbxQteAlc.SelectedIndex >= 0)
             {
+
                 AfficherGraphique();
                 //Formats entry to calculate alcohol level
                 string pourcent = cbxAlcool.SelectedItem.ToString().Substring(cbxAlcool.SelectedItem.ToString().IndexOf(",") + 1);
                 int pour = Convert.ToInt32(pourcent.Replace("%", ""));
                 this.Ctrl.SetLitre(Convert.ToInt32(cbxQteAlc.SelectedItem.ToString()));
                 //updates level of alcohol and adds point in chart
-                lblTaux.Text = Math.Round(this.Ctrl.boire(pour),2).ToString() + "g/L de sang";
-                chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
-                chart1.Series["Line"].Points.AddY(0.5);
+                lblTaux.Text = Math.Round(this.Ctrl.boire(pour), 2).ToString() + "g/L de sang";
+
+                chart1.Series["Taux d'alcool"].Points.AddXY(cpt, this.Ctrl.GetTaux().ToString());
                 timer1.Enabled = true;
             }
             else
@@ -113,17 +113,17 @@ namespace AlcoTest
 
         private void cbxAlcool_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             btnBoir.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //At each tick, updates level of alcohol and adds point in chart
+            cpt++;
             this.Ctrl.Rafraichir();
-            lblTaux.Text = Math.Round(this.Ctrl.GetTaux(),2).ToString() + "g/L de sang";
-            chart1.Series["Taux d'alcool"].Points.AddY(this.Ctrl.GetTaux().ToString());
-            chart1.Series["Line"].Points.AddY(0.5);
+            lblTaux.Text = Math.Round(this.Ctrl.GetTaux(), 2).ToString() + "g/L de sang";
+            chart1.Series["Taux d'alcool"].Points.AddXY(cpt, this.Ctrl.GetTaux().ToString());
             Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
 
         }
@@ -136,8 +136,12 @@ namespace AlcoTest
         private void AfficherGraphique()
         {
             //Design of chart
-            chart1.ChartAreas["Taux d'alcool"].AxisY.Maximum = 1;
-            chart1.ChartAreas["Taux d'alcool"].AxisY.Interval = 0.1;
+            chart1.ChartAreas["Taux d'alcool"].AxisY.Maximum = 3;
+            chart1.ChartAreas["Taux d'alcool"].AxisY.Interval = 0.5;
+            chart1.Series["Taux d'alcool"].CustomProperties = "IsXAxisQuantitative=True";
+            chart1.ChartAreas["Taux d'alcool"].AxisX.Interval = 2;
+            chart1.ChartAreas["Taux d'alcool"].AxisX.Maximum = 20;
+            chart1.ChartAreas["Taux d'alcool"].AxisX.Minimum = 0;
             chart1.Series["Taux d'alcool"].ChartType = SeriesChartType.FastLine;
             chart1.Series["Taux d'alcool"].Color = Color.Blue;
             chart1.Series["Line"].Color = Color.Red;
@@ -146,18 +150,21 @@ namespace AlcoTest
             chart1.ChartAreas["Taux d'alcool"].BorderDashStyle = ChartDashStyle.Solid;
             chart1.Series["Taux d'alcool"].LegendText = "Taux d'alcool";
             chart1.Series["Line"].LegendText = "Limite Conduite";
+            chart1.Series["Line"].Points.AddXY(chart1.ChartAreas["Taux d'alcool"].AxisX.Minimum, 0.5);
+            chart1.Series["Line"].Points.AddXY(chart1.ChartAreas["Taux d'alcool"].AxisX.Maximum, 0.5);
+            chart1.Series["Taux d'alcool"].Points.AddXY(0, 0);
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;
-            
+
             this.Ctrl.setTaux(0);
             lblTaux.Text = this.Ctrl.GetTaux().ToString();
             this.Ctrl.ClearFav();
-            this.Ctrl.SauverData(60,'F');
+            this.Ctrl.SauverData(60, 'F');
             chart1.Series[0].Points.Clear();
-            
+
 
         }
 
