@@ -33,7 +33,7 @@ namespace AlcoTest
             this.Ctrl = new ControleurAlcoTest(this);
             //Refresh at start to show level
             this.Ctrl.Rafraichir();
-            lblTaux.Text = Math.Round(Ctrl.GetTaux(), 2).ToString() + "g/L de sang";
+            lblTaux.Text = Math.Round(Ctrl.GetTaux(), 2).ToString() + "g/l de sang";
             Dictionary<string, int> Alc = this.Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
             foreach (var item in Alc)
             {
@@ -100,7 +100,7 @@ namespace AlcoTest
                 int pour = Convert.ToInt32(pourcent.Replace("%", ""));
                 this.Ctrl.SetLitre(Convert.ToInt32(cbxQteAlc.SelectedItem.ToString()));
                 //updates level of alcohol and adds point in chart
-                lblTaux.Text = Math.Round(this.Ctrl.boire(pour), 2).ToString() + "g/L de sang";
+                lblTaux.Text = Math.Round(this.Ctrl.boire(pour), 2).ToString() + "g/l de sang";
 
                 chart1.Series["Taux d'alcool"].Points.AddXY(cpt, this.Ctrl.GetTaux().ToString());
                 timer1.Enabled = true;
@@ -124,7 +124,7 @@ namespace AlcoTest
             //At each tick, updates level of alcohol and adds point in chart
             cpt++;
             this.Ctrl.Rafraichir();
-            lblTaux.Text = Math.Round(this.Ctrl.GetTaux(), 2).ToString() + "g/L de sang";
+            lblTaux.Text = Math.Round(this.Ctrl.GetTaux(), 2).ToString() + "g/l de sang";
             chart1.Series["Taux d'alcool"].Points.AddXY(cpt, this.Ctrl.GetTaux().ToString());
             Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
 
@@ -162,7 +162,7 @@ namespace AlcoTest
             timer1.Enabled = false;
 
             this.Ctrl.setTaux(0);
-            lblTaux.Text = this.Ctrl.GetTaux().ToString();
+            lblTaux.Text = this.Ctrl.GetTaux().ToString() + " g/l de sang";
             this.Ctrl.ClearFav();
             this.Ctrl.SauverData(60, 'F');
             chart1.Series[0].Points.Clear();
