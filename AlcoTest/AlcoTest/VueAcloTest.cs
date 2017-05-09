@@ -113,8 +113,10 @@ namespace AlcoTest
 
         private void cbxAlcool_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            btnBoir.Enabled = true;
+            if ((cbxAlcool.SelectedIndex >= 0) && (cbxQteAlc.SelectedIndex >= 0))
+            {
+                btnBoir.Enabled = true;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -152,7 +154,7 @@ namespace AlcoTest
             chart1.Series["Line"].LegendText = "Limite Conduite";
             chart1.Series["Line"].Points.AddXY(chart1.ChartAreas["Taux d'alcool"].AxisX.Minimum, 0.5);
             chart1.Series["Line"].Points.AddXY(chart1.ChartAreas["Taux d'alcool"].AxisX.Maximum, 0.5);
-           
+
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -167,6 +169,8 @@ namespace AlcoTest
 
 
         }
+
+
 
 
 

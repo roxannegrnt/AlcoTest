@@ -223,6 +223,7 @@
             this.cbxQteAlc.Name = "cbxQteAlc";
             this.cbxQteAlc.Size = new System.Drawing.Size(182, 21);
             this.cbxQteAlc.TabIndex = 11;
+            this.cbxQteAlc.SelectedIndexChanged += new System.EventHandler(this.cbxAlcool_SelectedIndexChanged);
             // 
             // VueAcloTest
             // 
