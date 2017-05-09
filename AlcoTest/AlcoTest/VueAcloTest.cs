@@ -141,8 +141,8 @@ namespace AlcoTest
             chart1.ChartAreas["Taux d'alcool"].AxisY.Maximum = 3;
             chart1.ChartAreas["Taux d'alcool"].AxisY.Interval = 0.5;
             chart1.Series["Taux d'alcool"].CustomProperties = "IsXAxisQuantitative=True";
-            chart1.ChartAreas["Taux d'alcool"].AxisX.Interval = 2;
-            chart1.ChartAreas["Taux d'alcool"].AxisX.Maximum = 20;
+            chart1.ChartAreas["Taux d'alcool"].AxisX.Interval = 12;
+            //chart1.ChartAreas["Taux d'alcool"].AxisX.Maximum = 20;
             chart1.ChartAreas["Taux d'alcool"].AxisX.Minimum = 0;
             chart1.Series["Taux d'alcool"].ChartType = SeriesChartType.FastLine;
             chart1.Series["Taux d'alcool"].Color = Color.Blue;
@@ -156,7 +156,7 @@ namespace AlcoTest
             chart1.Series["Line"].Points.AddXY(chart1.ChartAreas["Taux d'alcool"].AxisX.Maximum, 0.5);
 
         }
-
+        //Reset all parameters when reset is pressed
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;

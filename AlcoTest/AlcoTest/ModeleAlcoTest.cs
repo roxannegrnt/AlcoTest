@@ -19,6 +19,7 @@ namespace AlcoTest
         private double _masse;
         private int _sexe;
         private int _clitre;
+        private Dictionary<int, int> PointGraph;
         private Dictionary<string, int> _alcFav;
         private Dictionary<string, int> _toutAlc;
         private double _TauxAlc;
