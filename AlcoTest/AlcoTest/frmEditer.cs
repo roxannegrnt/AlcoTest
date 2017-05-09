@@ -33,7 +33,6 @@ namespace AlcoTest
                 lsbTout.Items.Add(item.Key + "," + item.Value + "%");
             }
             AjouterInfo();
-            cbxFav.SelectedIndex = 0;
         }
         private void btnValider_Click(object sender, EventArgs e)
         {

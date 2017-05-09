@@ -43,11 +43,11 @@ namespace AlcoTest
             if (!this.Ctrl.Serializer)
             {
                 cpt = 0;
-                AfficherGraphique();
-                
-                chart1.Series["Taux d'alcool"].Points.AddY(cpt, Ctrl.GetTaux());
-                this.Ctrl.Rafraichir();
                 timer1.Enabled = true;
+                AfficherGraphique();
+                chart1.Series["Taux d'alcool"].Points.AddXY(0, 0);
+                chart1.Series["Taux d'alcool"].Points.AddXY(cpt, Ctrl.GetTaux());
+                this.Ctrl.Rafraichir();
             }
             //else create new chart
             else
@@ -152,7 +152,7 @@ namespace AlcoTest
             chart1.Series["Line"].LegendText = "Limite Conduite";
             chart1.Series["Line"].Points.AddXY(chart1.ChartAreas["Taux d'alcool"].AxisX.Minimum, 0.5);
             chart1.Series["Line"].Points.AddXY(chart1.ChartAreas["Taux d'alcool"].AxisX.Maximum, 0.5);
-            chart1.Series["Taux d'alcool"].Points.AddXY(0, 0);
+           
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)

@@ -102,9 +102,9 @@ namespace AlcoTest
             TimeSpan current = DateTime.Now - this.Timer;
             int diff = Convert.ToInt32(current.TotalSeconds);
             this.Timer = DateTime.Now;
-            //15mg per h
+            //0.015g per h
             //Substract to level diffrence, happens even during serialization
-            this.TauxAlc -= 0.0000416 * diff;
+            this.TauxAlc -= 0.00025 * diff;
         }
         public void SauverData(double paramMasse, char paramSexe)
         {

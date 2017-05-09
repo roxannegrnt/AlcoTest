@@ -190,6 +190,7 @@
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "LegendGraph";
             series1.Name = "Taux d\'alcool";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
             series2.ChartArea = "Taux d\'alcool";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Legend = "LegendGraph";
@@ -238,6 +239,7 @@
             this.Controls.Add(this.lblTaux);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "VueAcloTest";
             this.Text = "Alco test";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VueAcloTest_FormClosing);
