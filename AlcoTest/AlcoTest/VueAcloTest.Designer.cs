@@ -77,21 +77,21 @@
             // editerToolStripMenuItem
             // 
             this.editerToolStripMenuItem.Name = "editerToolStripMenuItem";
-            this.editerToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.editerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editerToolStripMenuItem.Text = "&Editer";
             this.editerToolStripMenuItem.Click += new System.EventHandler(this.editerToolStripMenuItem_Click);
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.resetToolStripMenuItem.Text = "&Reset";
             this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -155,7 +155,7 @@
             this.btnBoir.Name = "btnBoir";
             this.btnBoir.Size = new System.Drawing.Size(86, 63);
             this.btnBoir.TabIndex = 6;
-            this.btnBoir.Text = "Boir !!";
+            this.btnBoir.Text = "Boire !!";
             this.btnBoir.UseVisualStyleBackColor = true;
             this.btnBoir.Click += new System.EventHandler(this.btnBoir_Click);
             // 
