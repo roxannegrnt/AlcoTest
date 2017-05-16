@@ -20,7 +20,7 @@ namespace AlcoTest
     {
         private ModeleAlcoTest modele;
         private VueAcloTest vueAlc;
-        private bool serializer=true;
+        private bool serializer = true;
 
         public bool Serializer
         {
@@ -130,6 +130,18 @@ namespace AlcoTest
         {
             modele.AlcFav.Clear();
         }
-
+        public void ClearPoints()
+        {
+            modele.PointsGraph.Clear();
+        }
+        public List<KeyValuePair<int, double>> GetPoints()
+        {
+           // modele.PointsGraph = new List<KeyValuePair<int, double>>();
+            return modele.PointsGraph;
+        }
+        public void InsertPoints(int x, double y)
+        {
+            modele.PointsGraph.Add(new KeyValuePair<int, double>(x, y));
+        }
     }
 }

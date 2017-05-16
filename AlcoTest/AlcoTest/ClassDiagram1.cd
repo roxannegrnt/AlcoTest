@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AlcoTest.APropos">
-    <Position X="2" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>kIAAAAgAACAgCAUAAACAAAADAAAAEIAAAAAAAAAAAAA=</HashCode>
       <FileName>APropos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlcoTest.ControleurAlcoTest">
-    <Position X="3.75" Y="0.5" Width="1.5" />
+    <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>KCABABAqIAAAAGAiAAAAAAAAAECBAAAAAAAAAEAIAAA=</HashCode>
+      <HashCode>LiABoBAqIAACAGAiAAAAAAAAAEKBAAAAAAAAAEAIAAA=</HashCode>
       <FileName>ControleurAlcoTest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlcoTest.frmEditer">
-    <Position X="7" Y="0.5" Width="1.5" />
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAACAAAlAAAACBAAACAAQACCRAAAAAQAAAQAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAlABQACBQAACAAQAACRIAAAAQAAAQAA=</HashCode>
       <FileName>frmEditer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlcoTest.ModeleAlcoTest">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>KAAAgAAIAAAgAAAjASAAAAEAIAAAAAEAAAQAgggEASA=</HashCode>
+      <HashCode>LAAAgAAIAAAgAAAjASAAAAEAIAAAAAEAAAQAgggEASA=</HashCode>
       <FileName>ModeleAlcoTest.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -36,20 +36,20 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AlcoTest.VueAcloTest">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IQQAQCDAACIAABBiECCIQAACAAAAIAggAgAgAQAAUAA=</HashCode>
+      <HashCode>IQQAQCDAACIAABBiEQCIUACCAAACIAggAoAAAQAAUAA=</HashCode>
       <FileName>VueAcloTest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlcoTest.Properties.Resources" Collapsed="true">
-    <Position X="8.75" Y="2" Width="1.5" />
+    <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAACAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="AlcoTest.Properties.Settings" Collapsed="true">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Position X="9.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>

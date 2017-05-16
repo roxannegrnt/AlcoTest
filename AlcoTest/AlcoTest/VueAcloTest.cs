@@ -42,17 +42,22 @@ namespace AlcoTest
             //If form was Serialized gets info from model 
             if (!this.Ctrl.Serializer)
             {
-                cpt = 0;
+                cpt = Ctrl.GetPoints().Count;
                 timer1.Enabled = true;
                 AfficherGraphique();
                 chart1.Series["Taux d'alcool"].Points.AddXY(0, 0);
+                //Get the points from last serialization
+                for (int i = 0; i < Ctrl.GetPoints().Count; i++)
+                {
+                    chart1.Series["Taux d'alcool"].Points.AddXY(Ctrl.GetPoints()[i].Key, Ctrl.GetPoints()[i].Value);
+                }
                 chart1.Series["Taux d'alcool"].Points.AddXY(cpt, Ctrl.GetTaux());
                 this.Ctrl.Rafraichir();
             }
             //else create new chart
             else
             {
-                chart1.Series["Taux d'alcool"].Points.AddY(0);
+                chart1.Series["Taux d'alcool"].Points.AddXY(0, 0);
                 chart1.ChartAreas["Taux d'alcool"].AxisX.IntervalOffsetType = DateTimeIntervalType.Hours;
             }
             //stop timer when alcohol level is at 0
@@ -101,8 +106,9 @@ namespace AlcoTest
                 this.Ctrl.SetLitre(Convert.ToInt32(cbxQteAlc.SelectedItem.ToString()));
                 //updates level of alcohol and adds point in chart
                 lblTaux.Text = Math.Round(this.Ctrl.boire(pour), 2).ToString() + "g/l de sang";
-
+                //Add points to chart and to list of graph points 
                 chart1.Series["Taux d'alcool"].Points.AddXY(cpt, this.Ctrl.GetTaux().ToString());
+                Ctrl.InsertPoints(cpt, this.Ctrl.GetTaux());
                 timer1.Enabled = true;
             }
             else
@@ -126,6 +132,7 @@ namespace AlcoTest
             this.Ctrl.Rafraichir();
             lblTaux.Text = Math.Round(this.Ctrl.GetTaux(), 2).ToString() + "g/l de sang";
             chart1.Series["Taux d'alcool"].Points.AddXY(cpt, this.Ctrl.GetTaux().ToString());
+            Ctrl.InsertPoints(cpt, this.Ctrl.GetTaux());
             Ctrl.AfficherAlcDemande("..\\..\\Resources\\AlcoolFav.txt", "..\\..\\Resources\\Alcoool.txt");
 
         }
@@ -164,8 +171,10 @@ namespace AlcoTest
             this.Ctrl.setTaux(0);
             lblTaux.Text = this.Ctrl.GetTaux().ToString() + " g/l de sang";
             this.Ctrl.ClearFav();
+            this.Ctrl.ClearPoints();
             this.Ctrl.SauverData(60, 'F');
             chart1.Series[0].Points.Clear();
+            chart1.Series["Taux d'alcool"].Points.AddXY(0, 0);
 
 
         }

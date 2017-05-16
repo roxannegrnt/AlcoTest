@@ -19,7 +19,7 @@ namespace AlcoTest
         private double _masse;
         private int _sexe;
         private int _clitre;
-        private Dictionary<int, int> PointGraph;
+        private List<KeyValuePair<int, double>> _pointsGraph;
         private Dictionary<string, int> _alcFav;
         private Dictionary<string, int> _toutAlc;
         private double _TauxAlc;
@@ -40,6 +40,11 @@ namespace AlcoTest
         {
             get { return _clitre; }
             set { _clitre = value; }
+        }
+        public List<KeyValuePair<int, double>> PointsGraph
+        {
+            get { return _pointsGraph; }
+            set { _pointsGraph = value; }
         }
         public Dictionary<string, int> AlcFav
         {
@@ -69,7 +74,6 @@ namespace AlcoTest
 
             }
         }
-
         public DateTime Timer
         {
             get { return _timer; }
@@ -77,8 +81,9 @@ namespace AlcoTest
         }
         public ModeleAlcoTest()
         {
-            AlcFav = new Dictionary<string, int>();
-            ToutAlc = new Dictionary<string, int>();
+            this.AlcFav = new Dictionary<string, int>();
+            this.ToutAlc = new Dictionary<string, int>();
+            this.PointsGraph = new List<KeyValuePair<int, double>>();
             this.Masse = 0.06;
             this.Sexe = 0;
             this.Timer = DateTime.Now;
